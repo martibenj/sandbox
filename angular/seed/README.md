@@ -1,4 +1,4 @@
-# Seed
+# Seed - Angular Fiddling
 
 Contient des applications Angular pour tester différentes fonctionnalités.  
 
