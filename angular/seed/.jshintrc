@@ -1,0 +1,21 @@
+{
+  "bitwise": true,
+  "browser": true,
+  "curly": true,
+  "eqeqeq": true,
+  "esnext": true,
+  "latedef": "nofunc",
+  "noarg": true,
+  "node": true,
+  "undef": false,
+  "unused": false,
+  "smarttabs": true,
+  "strict": true,
+  "trailing": true,
+  "jasmine": true,
+
+  "predef": [
+    "inject"
+  ]
+
+}

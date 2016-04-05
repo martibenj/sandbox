@@ -1,0 +1,26 @@
+<html lang="fr">
+<head>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="./controller.js"></script>
+<link rel="stylesheet" href="./css.css">
+</head>
+<body ng-app="formModule" ng-controller="Controller as ctrl">
+	<p>Retour :</p>
+	<table>
+		<tr>
+			<td align="center">Id</td>
+			<td align="center">Titre</td>
+		</tr>
+		<tr ng-repeat="item in listeRecup">
+			<td align="center">{{item.id}}</td>
+			<td align="center">{{item.titre}}</td>
+		</tr>
+	</table>
+	
+	<br/><br/><br/>
+	<form name="addSerie">
+		<input ng-model="fields.titre">
+		<button ng-click="submit()">Send !</button>
+	</form>
+</body>
+</html>

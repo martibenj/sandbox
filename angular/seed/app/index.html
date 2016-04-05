@@ -1,0 +1,15 @@
+<html lang="fr">
+<head>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="./controller.js"></script>
+</head>
+<body>
+	<div data-ng-app="app" data-ng-controller="Controller as ctrl">
+		<input ng-model="monInput" type="number" ng-change="callService()" />
+		<p ng-bind="label" />
+		<p ng-bind="label2" />
+		<p>{{ctrl.attrib2}}</p>
+		<input ng-model="monInput" type="button" ng-click="callLogDeferred()" value="button" />
+	</div>
+</body>
+</html>

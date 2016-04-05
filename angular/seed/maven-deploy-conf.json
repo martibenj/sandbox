@@ -1,0 +1,10 @@
+{
+  "groupId": "fr.pe.fwk.ng.seed",
+  "artifactId": "my-pe-ng-seed",
+  "repositories": [
+    {
+      "id": "defaut",
+      "url": "http://slzk3i.sii24.pole-emploi.intra:8081/nexus/content/repositories/PoleEmploi-Snapshots/"
+    }
+  ]
+}

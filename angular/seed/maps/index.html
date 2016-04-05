@@ -1,0 +1,35 @@
+<html lang="fr">
+<head>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src='../node_modules/angular-google-maps/node_modules/lodash/lodash.min.js'></script>
+<script src='../node_modules/angular-google-maps/node_modules/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
+<script src='../node_modules/angular-google-maps/dist/angular-google-maps.min.js'></script>
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+<script src="./controller.js"></script>
+
+<link rel="stylesheet" href="./css.css">
+</head>
+<body ng-app="mapsModule" ng-controller="Controller as ctrl">
+	<table>
+		<tr>
+			<td>
+				<div>
+					<!--<ui-gmap-google-map ng-model="map1.map" center='mapinit.center' zoom='mapinit.zoom'></ui-gmap-google-map> -->
+					<div my-map=""></div>
+					<input ng-model="map1.latitude" ng-change="{{map2.latitude = map1.latitude}}"> <br /> <input ng-model="map1.longitude"> <br />
+				</div>
+			</td>
+			<td>
+				<div>
+					<!-- <ui-gmap-google-map ng-model="map2.map" center='mapinit.center' zoom='mapinit.zoom'></ui-gmap-google-map> -->
+					<div my-map=""></div>
+					<input ng-model="map2.latitude" > <br /> <input ng-model="map2.longitude">
+					<br />
+				</div>
+			</td>
+		</tr>
+	</table>
+	<button bnj-directive>button</button>
+</body>
+</html>

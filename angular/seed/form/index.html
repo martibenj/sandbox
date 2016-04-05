@@ -1,0 +1,37 @@
+<html lang="fr">
+<head>
+<script src="../node_modules/angular/angular.min.js"></script>
+<script src="./controller.js"></script>
+<link rel="stylesheet" href="./css.css">
+<script type="text/javascript" src="http://code.angularjs.org/snapshot/angular-messages.js"></script>
+</head>
+<body ng-app="formModule">
+
+	<form name="myForm" ng-controller="Controller as ctrl" class="elegant-aero">
+		Nom Utilisateur <input type="text" name="nomUser" ng-model="fields.nomUser" ng-minlength="3" ng-maxlength="6" required>
+
+		<div ng-messages="myForm.nomUser.$error" style="color: maroon">
+			<div ng-message="required">You did not enter a field</div>
+			<div ng-message="minlength">Your field is too short</div>
+			<div ng-message="maxlength">Your field is too long</div>
+		</div>
+
+		<br /> <br /> Date de Naissance <input type="date" ng-model="fields.dateNaisUser"><br /> <br /> Email <input
+			type="email" ng-model="fields.emailUser"><br /> <br /> Genre
+		<div>
+			<input name="genreUser" type="radio" ng-model="fields.genreUser" value="true">Homme<br /> <br /> <input
+				name="genreUser" type="radio" ng-model="fields.genreUser">Femme<br /> <br />
+		</div>
+
+		Aimez-vous le Gras ?! <input type="checkbox" ng-model="fields.grasUser"><br /> <br /> Quelle est votre
+		couleur préférée (choix limité!) <select ng-model="fields.selectColor"
+			ng-options="val for val in getAvailableColors()"><br />
+			<br />
+		</select>
+
+		<button ng-click="submit()" ng-disabled="myForm.$invalid || myForm.$pristine">Enregistrer</button>
+		<br /> <br /> <br /> <br /> <br /> <br />
+		<p ng-bind="resultat">{{resultat}}</p>
+	</form>
+</body>
+</html>
