@@ -1,4 +1,38 @@
-# Graine NG
+# Seed
+
+Contient des applications Angular pour tester différentes fonctionnalités.  
+
+Ci dessous l'arborescence :
+
+├── min **=> Minimalist app only containing an HTML**  
+│   └── index.html  
+│  
+├── app **=> App using deferred and using Controller functions**  
+│   ├── controller.js  
+│   ├── index.html  
+│  
+├── form **=> Form used to show inputs on submit**  
+│   ├── controller.js  
+│   ├── css.css  
+│   └── index.html  
+│  
+├── req **=> A get method from a WS to show json data and a post method to add data using a WS**  
+│   ├── controller.js  
+│   ├── css.css  
+│   └── index.html  
+│  
+├── maps **=> Fiddling with Gmaps**  
+│   ├── controller.js  
+│   ├── css.css  
+│   └── index.html  
+│  
+├── e2e-tests **=> Testing**  
+└── outillage **=> Building tools**  
+
+
+
+
+# Autres conseils de Dev Angular :
 
 Ce projet sert de graine pour initialiser les développements d'une nouvelle application basée sur Angular JS.
 
