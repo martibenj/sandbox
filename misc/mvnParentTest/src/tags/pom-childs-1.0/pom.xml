@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.martiben.test</groupId>
+		<artifactId>module-papa</artifactId>
+		<version>1.0</version>
+	</parent>
+	
+	<groupId>fr.martiben.test</groupId>
+	<artifactId>pom-childs</artifactId>
+	<version>1.0</version>
+
+	<name>Projet test : Childs</name>
+	<description>Projet test :: Childs</description>
+	<packaging>pom</packaging>
+
+	<scm>
+		<connection>scm:svn:https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/src/tags/pom-childs-1.0</connection>
+		<developerConnection>scm:svn:https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/src/tags/pom-childs-1.0</developerConnection>
+	</scm>
+	
+	<modules>
+		<module>fils1</module>
+		<module>fils2</module>
+	</modules>
+	
+	 <build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagBase>https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/src/tags/</tagBase>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

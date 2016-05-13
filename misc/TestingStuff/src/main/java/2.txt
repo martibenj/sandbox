@@ -1,0 +1,21 @@
+3.6.4
+Manifest-Version: 1.0
+Bundle-ClassPath: .,dependencies/java-gitlab-api-1.1.8.jar
+Bundle-Description: NovaForge(tm) :: Plugins :: GitLab :: Librairies
+Bundle-DocURL: http://www.bull.net
+Bundle-License: http://www.gnu.org/licenses/agpl.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: NovaForge(tm) :: Plugins :: GitLab :: Librairies
+Bundle-SymbolicName: novaforge-gitlab-library
+Bundle-Vendor: Bull SAS
+Bundle-Version: 3.6.4
+Created-By: Apache Maven Bundle Plugin
+Embed-Dependency: java-gitlab-api
+Embed-Directory: dependencies
+Embed-Transitive: true
+Embedded-Artifacts: 
+dependencies/java-gitlab-api-1.1.8.jar;g="org.gitlab";a="java-gitlab-api";v="1.1.8"
+
+Export-Package: org.gitlab.api.models;version="3.6.4",org.gitlab.api;version="1.1.8",org.gitlab.api.http;version="1.1.8"
+Import-Package: com.fasterxml.jackson.annotation;version="[2.5,3)",com.fasterxml.jackson.databind;version="[2.5,3)",javax.net.ssl,org.apache.commons.io;version="[1.4,2)"
+Tool: Bnd-1.50.0

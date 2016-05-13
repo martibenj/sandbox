@@ -1,0 +1,27 @@
+<MESURE_LD_BATCH_SANS_CLE>
+	<IDENTIFICATION>
+		<GESTIONNAIRE>GestionnaireBatchSansCle [306502]</GESTIONNAIRE>
+		<DOMAINE>NomDomaineBatch</DOMAINE>
+		<SERVICE>BatchGenericSansCle</SERVICE>
+		<TERRITOIRE>039</TERRITOIRE>
+		<ID_EXERCICE>[AbstractIdentifiantExerciceGen,
+			identifiantTraitementBatchImpl:
+			[AbstractIdentifiantTraitementBatchGen, nomDomaineBatchCible:
+			NomDomaineBatch, nomLogiqueTraitementBatch: BatchGenericSansCle,
+			nomServiceBatch: BatchGenericSansCle], codeChaine: chaine,
+			nomLogiqueCible: NomLogiqueCibleval prop1, codeTerritoire: 039,
+			dateTraitementPremiereEtapeLong: 220316400000,
+			dateTraitementPremiereEtapeFormatee: 25/12/1976 00:00:00.000,
+			dateExecutionLong: 1349173005776, dateExecutionFormatee: 02/10/2012
+			12:26:45.776, idAuto: 306502, identifiantEnvironnement: ENVBLOC]</ID_EXERCICE>
+		<ENVIRONNEMENT>ENVBLOC</ENVIRONNEMENT>
+	</IDENTIFICATION>
+	<METRO>
+		<S_TR_TOT_EX>3</S_TR_TOT_EX>
+		<S_TR_TOT_ET>3</S_TR_TOT_ET>
+		<S_TR_NON_TR>0</S_TR_NON_TR>
+		<S_TR_SUCCES>3</S_TR_SUCCES>
+		<S_TR_SUCCES_PART>0</S_TR_SUCCES_PART>
+		<S_TR_ECHEC>0</S_TR_ECHEC>
+	</METRO>
+</MESURE_LD_BATCH_SANS_CLE>

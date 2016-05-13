@@ -1,0 +1,36 @@
+<MESURE_LD_BATCH_CLE>
+	<IDENTIFICATION>
+		<GESTIONNAIRE>GestionnaireBatchAvecCles [306501]</GESTIONNAIRE>
+		<DOMAINE>NomDomaineBatch</DOMAINE>
+		<SERVICE>BatchGeneric</SERVICE>
+		<TERRITOIRE>039</TERRITOIRE>
+		<ID_EXERCICE>[AbstractIdentifiantExerciceGen,
+			identifiantTraitementBatchImpl:
+			[AbstractIdentifiantTraitementBatchGen, nomDomaineBatchCible:
+			NomDomaineBatch, nomLogiqueTraitementBatch: BatchGeneric,
+			nomServiceBatch: BatchGeneric], codeChaine: chaine, nomLogiqueCible:
+			nomLogiqueDeCibleGeneric, codeTerritoire: 039,
+			dateTraitementPremiereEtapeLong: 220489200000,
+			dateTraitementPremiereEtapeFormatee: 27/12/1976 00:00:00.000,
+			dateExecutionLong: 1349172992102, dateExecutionFormatee: 02/10/2012
+			12:26:32.102, idAuto: 306501, identifiantEnvironnement: ENVBLOC]
+		</ID_EXERCICE>
+		<ENVIRONNEMENT>ENVBLOC</ENVIRONNEMENT>
+	</IDENTIFICATION>
+	<METRO>
+		<NB_CLES>2</NB_CLES>
+		<NB_CLES_SUCCES>1</NB_CLES_SUCCES>
+		<NB_CLES_NON_TRT>0</NB_CLES_NON_TRT>
+		<NB_CLES_ECH_COMP>1</NB_CLES_ECH_COMP>
+		<NB_CLES_ECH_PART>0</NB_CLES_ECH_PART>
+		<NB_CLES_ET>2</NB_CLES_ET>
+		<NB_CLES_NOUVELLES_ETAPES>2</NB_CLES_NOUVELLES_ETAPES>
+		<NB_CLES_ET_SUCCES>1</NB_CLES_ET_SUCCES>
+		<NB_CLES_ET_NON_TRT>0</NB_CLES_ET_NON_TRT>
+		<NB_CLES_ET_ECH_COMP>1</NB_CLES_ET_ECH_COMP>
+		<NB_CLES_ET_ECH_PART>0</NB_CLES_ET_ECH_PART>
+		<DUREE_TRAIT>7016</DUREE_TRAIT>
+		<DUREE_TRAIT_TOT_ET>0</DUREE_TRAIT_TOT_ET>
+		<DUREE_TRAIT_MOY_ET>0</DUREE_TRAIT_MOY_ET>
+	</METRO>
+</MESURE_LD_BATCH_CLE>

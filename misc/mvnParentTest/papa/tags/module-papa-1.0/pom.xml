@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>fr.martiben.test</groupId>
+	<artifactId>module-papa</artifactId>
+	<version>1.0</version>
+
+	<name>Projet test : Papa</name>
+	<description>Projet test :: Papa</description>
+	<packaging>pom</packaging>
+
+   <developers>
+		<developer>
+			<id>b.martinelli</id>
+			<name>Benjamin Martinelli</name>
+			<email>benjamin.martinelli@atos.net</email>
+		</developer>
+	</developers>
+
+	<prerequisites>
+		<maven>2.2.1</maven>
+	</prerequisites>
+
+	<scm>
+		<connection>scm:svn:https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/papa/tags/module-papa-1.0</connection>
+		<developerConnection>scm:svn:https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/papa/tags/module-papa-1.0</developerConnection>
+	</scm>
+	
+	<distributionManagement>
+		<repository>
+			<id>maintenance3_nexus2maintenance_release</id>
+			<name>Maintenance3 Repository Release</name>
+			<url>https://novaforge.bull.com/nexus-default/nexus/content/repositories/maintenance3_nexus2maintenance_release/</url>
+		</repository>
+		<snapshotRepository>
+			<id>maintenance3_nexus2maintenance_snapshot</id>
+			<name>Maintenance3 Repository Snapshot</name>
+			<url>https://novaforge.bull.com/nexus-default/nexus/content/repositories/maintenance3_nexus2maintenance_snapshot/</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+   <properties>
+    <maven.build.timestamp.format>yyyyMMdd</maven.build.timestamp.format>
+  </properties>
+
+   <build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<autoVersionSubmodules>true</autoVersionSubmodules>
+					<tagBase>https://novaforge.bull.com/svn-default/svn/novaforge_sandbox/bnj/papa/tags/</tagBase>
+				</configuration>
+			</plugin>
+		</plugins>
+
+      <pluginManagement>
+		<plugins>
+			<plugin>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.2.1</version>
+			</plugin>
+		</plugins>
+      </pluginManagement>
+   </build>
+   
+</project>

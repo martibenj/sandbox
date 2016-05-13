@@ -1,0 +1,3 @@
+# Misc
+Don't come here, everything here is useless to you, you'll waste your time...
+Useless Stuff for personnal languages testing purpose. It's a mess on purpose !
