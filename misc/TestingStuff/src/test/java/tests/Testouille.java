@@ -2,7 +2,6 @@ package tests;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
@@ -12,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -30,7 +30,6 @@ import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecutor;
 import org.apache.commons.exec.PumpStreamHandler;
-import org.codehaus.plexus.util.FileUtils;
 import org.joda.time.DateTime;
 import org.joda.time.Duration;
 import org.junit.Assert;
@@ -42,6 +41,7 @@ import old.def.FormEntity;
 import old.def.from;
 
 public class Testouille {
+
    @Test
    public void stub() throws IOException {
    }
@@ -59,6 +59,37 @@ public class Testouille {
    }
 
    @Test
+   public void d() throws IOException {
+   }
+
+   @Test
+   public void dateConstrString() throws IOException {
+      System.out.println(new Date("10/06/14"));
+      System.out.println("Coup de bol");
+   }
+
+   @Test
+   public void changeOnDateTime() throws IOException {
+      DateTime dateDernierArchivage = new DateTime();
+      System.out.println("de op : " + dateDernierArchivage.plusDays(1).toDate());
+      System.out.println("apres op : " + dateDernierArchivage.toDate());
+      System.out.println("de op2 : " + dateDernierArchivage.plusDays(1));
+      System.out.println("apres op2 : " + dateDernierArchivage.toDate());
+      // => ne touche pas à la référence d'origine. A ecraser donc.
+   }
+
+   @Test
+   public void writeStringtoFile() throws IOException {
+      //      File file = new File("C:\\truc.txt");
+      //      FileUtils.writeStringToFile(file, "hey", "ISO-8859-1");
+      //      FileUtils.writeStringToFile(file, "hey", "ISO-8859-1");
+      //      FileUtils.writeStringToFile(file, "hey", "ISO-8859-1");
+      //      FileUtils.writeStringToFile(file, "oh", "ISO-8859-1");
+      //      FileUtils.writeStringToFile(file, "oh", "ISO-8859-1");
+      //      FileUtils.writeStringToFile(file, "oh", "ISO-8859-1");
+   }
+
+   @Test
    public void duration() throws IOException {
       DateTime j = new DateTime().withTimeAtStartOfDay();
       DateTime jPlusOne = new DateTime().withTimeAtStartOfDay().plusDays(1);
@@ -66,10 +97,15 @@ public class Testouille {
       System.out.println(duration.getMillis());
       // 1jr = 86400000
 
-      DateTime anniv = new DateTime().withDate(2015,9,12).withTimeAtStartOfDay();
-      DateTime debutAnnee = new DateTime().withDate(2016,1,1).withTimeAtStartOfDay();
-      System.out.println("anniv:"+anniv.getMillis());
-      System.out.println("debut:"+debutAnnee.getMillis());
+      DateTime anniv = new DateTime().withDate(2015, 9, 12).withTimeAtStartOfDay();
+      DateTime debutAnnee = new DateTime().withDate(2016, 1, 1).withTimeAtStartOfDay();
+      System.out.println("anniv:" + anniv.getMillis());
+      System.out.println("debut:" + debutAnnee.getMillis());
+
+      DateTime ref = new DateTime().withTimeAtStartOfDay();
+      DateTime moins5 = ref.minusDays(5);
+      Duration cinqJrs = new Duration(moins5, ref);
+      System.out.println("5 jours :" + cinqJrs.getMillis());
    }
 
    @Test
@@ -100,9 +136,12 @@ public class Testouille {
    }
 
    @Test
-   public void formatter() throws IOException {
+   public void formatter() throws IOException, ParseException {
       SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy");
       System.out.println(sdf.format(new DateTime().toDate()));
+      System.out.println(sdf.parse("01/01/36"));
+      System.out.println(sdf.parse("01/01/37"));
+      System.out.println("Utiliser set2DigitYearStart()");
    }
 
    @Test
@@ -158,8 +197,8 @@ public class Testouille {
 
    @Test
    public void mkdirs() {
-      File file = new File("C:\\bnj\\truc");
-      System.out.println(file.mkdirs());
+      //      File file = new File("C:\\bnj\\truc");
+      //      System.out.println(file.mkdirs());
    }
 
    @Test
@@ -361,9 +400,9 @@ public class Testouille {
 
    @Test
    public void fileutils() {
-      File f = new File("/opt/instaForge/3.5.0//datas/jenkins/plugins/dashboard-view");
-      System.out.println(f.getName());
-      System.out.println(FileUtils.basename(f.getName()));
+      //      File f = new File("/opt/instaForge/3.5.0//datas/jenkins/plugins/dashboard-view");
+      //      System.out.println(f.getName());
+      //System.out.println(FileUtils.basename(f.getName()));
    }
 
    @Test
@@ -520,20 +559,20 @@ public class Testouille {
 
    @Test
    public void fichier() {
-      try {
-         final FileWriter writer = new FileWriter(nomFichier, true);
-         writer.write("hello");
-         writer.close();
-      }
-      catch (IOException e) {
-         System.out.println(e);
-      }
+      //      try {
+      //         final FileWriter writer = new FileWriter(nomFichier, true);
+      //         writer.write("hello");
+      //         writer.close();
+      //      }
+      //      catch (IOException e) {
+      //         System.out.println(e);
+      //      }
    }
 
    @Test
    public void move() {
-      File f = new File("d:\\temp\\export.xml");
-      f.renameTo(new File("d:\\temp\\metrologie\\export.xml"));
+      //      File f = new File("d:\\temp\\export.xml");
+      //      f.renameTo(new File("d:\\temp\\metrologie\\export.xml"));
    }
 
    @Test
@@ -542,5 +581,4 @@ public class Testouille {
       s += "you";
       System.out.println(s);
    }
-
 }
