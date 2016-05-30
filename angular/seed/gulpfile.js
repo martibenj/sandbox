@@ -5,7 +5,7 @@ var wrench = require('wrench');
 var pkg = require('./package.json');
 
 var options = {
-	src: './apps/nta/',
+	src: './apps/nta/ui-grid',
 	dist: './dist',
 	e2eTests: './e2e-tests',
 	reports: './reports',

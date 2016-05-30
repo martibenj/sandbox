@@ -1,7 +1,7 @@
 // main.js
 var app = angular.module('myApp', ['ui.grid']);
 app.controller('MyCtrl', function($scope) {
-	console.log("ta mère");
+
     $scope.title = "POC NTA avec composant ng-grid";
     
     $scope.myDataInit = [{
