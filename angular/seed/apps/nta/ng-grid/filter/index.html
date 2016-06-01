@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="myAppCtrl">
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.css" />
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.min.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid.debug.js"></script>
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid-flexible-height.js"></script>
+	<script src="controller.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body >
+	<br />
+	<label class="hpppLbl"><strong>Filter:</strong> </label>
+	<input type="text" ng-model="filterOptions.filterText" />
+	<br />
+	<table width=100%, style="height: 650px;">
+		<tr>
+			<td width="70%">
+				<div class="parameterGrid" ng-grid="parameterGrid"></div>
+			</td>
+			<td>
+				<div class="parameterEditGrid" ng-grid="parameterEditGrid">
+					<button type="submit" data-ng-disabled="changes.length <= 0" ng-click="checkChange()">Save</button>
+				</div>
+			<td>
+		</tr>
+	</table>
+</body>
+</html>
