@@ -1,0 +1,9 @@
+.grid {
+  width: 500px;
+  height: 250px;
+}
+
+.grey .ui-grid-cell-contents
+{
+  background-color:red;
+}
