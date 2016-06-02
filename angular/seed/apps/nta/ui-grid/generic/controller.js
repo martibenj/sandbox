@@ -37,44 +37,33 @@ app.controller('MyCtrl', function($scope){
 	console.log('myDataInit:'); 
 	console.log($scope.myDataInit);
 
-	var colorChoice = '<div ng-class="{getExternalScopes().compteur(row)}">{{row.entity.idFT}}</div>';
-	 
 	$scope.gridOptions = {
 		data : 'myDataTraitee',
 		multiSelect : false,
-//		onRegisterApi : function(gridApi) {
-//			grid = gridApi;
-//		},
-		//rowTemplate : '<div ng-class="{\'gray\': $scope.compteur(row)}"> <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader}"  ui-grid-cell></div></div>',
+		rowTemplate : '<div ng-class="{\'gray\': grid.appScope.compteur(row) }"> <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader}"  ui-grid-cell></div></div>',
 			
-		columnDefs : [ {
+		columnDefs : [{
 			field : 'idFT',
-			displayName : 'Num FT',
-			cellTemplate: colorChoice
+			displayName : 'Num FT'
 		}, {
 			field : 'idLFT',
-			displayName : 'Num LFT',
-			cellTemplate: colorChoice
-		} ]
+			displayName : 'Num LFT'
+		}]
 	};
 	
 	// Access outside scope functions from row template
 	$scope.cpt = 0;
 	$scope.prevValue = '';
 	$scope.prevRes = true;
-	
-	$scope.functions = {
-			compteur: function(row) {
-				$scope.cpt++;
-				console.log($scope.cpt);
-			  }
-			};
+	$scope.compteur = function(row) {
+		$scope.cpt++;
+		console.log($scope.cpt);
+	}
+	$scope.hey = function(row) {
+		console.log("hey");
+	}
 
-//	
-//	$scope.compteur = function(row) {
-//		$scope.cpt++;
-//		console.log($scope.cpt);
-//	}
+
 //	$scope.rowFormatter = function(row) {
 //		$scope.cpt++
 //		var res =false;
