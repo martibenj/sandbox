@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="basicsCtrl">
+
+<head lang="en">
+<meta charset="utf-8">
+<title>Test</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="controller.js"></script>
+<script src="node_modules/angular-smart-table/dist/smart-table.js"></script>
+<script src="node_modules/angular-smart-table/dist/smart-table.min.js"></script>
+</head>
+
+<body>
+	<div>
+		<input type="checkbox" ng-click="showDateFT = !showDateFT">Date FT</input>
+	</div>
+	<table st-table="myDataInit" class="table table-striped table-bordered">
+		<thead class="thead-inverse">
+		<tr>
+			<th class="colFT" colspan="6">FT</th>
+			<th  class=" firstTd">
+				<table >
+					<thead>
+						<tr class="firstTr">
+							<th class="colLFT" colspan="5">LFT</th>
+							<th class="firstTd">
+								<table >
+									<thead>
+										<tr class="firstTr">
+											<th class="colRep lastTd" colspan="4">Réponse</th>
+										</tr>
+									</thead>
+								</table >
+							</th>
+						</tr>
+					</thead>
+				</table >
+			</th>
+		</tr>
+		<tr>
+			<th class="colFT" ng-show="showDateFT" st-sort-default="true" st-sort="dateFT">Date FT</th>
+			<th class="colFT" st-sort="nomFT">FT</th>
+			<th class="colFT" st-sort="Neutr">Neutr.</th>
+			<th class="colFT" st-sort="RepFT">Rep FT</th>
+			<th class="colFT" st-sort="dateAR1">Date AR1</th>
+			<th class="colFT" st-sort="immat">Immat.</th>
+			<th class="firstTd">
+				<table >
+					<thead>
+						<tr class="firstTr">
+							<th class=" colLFT colIdLFT" st-sort="triIdLFT.idLFT">LFT</th>
+							<th class=" colLFT colIndice" st-sort="triIndice.indice">Indice</th>
+							<th class=" colLFT colIdgDem" st-sort="getters.idgDem">IDG Dem.</th>
+							<th class=" colLFT colDesignDem" st-sort="listLFT.designDem">Désign. Dem.</th>
+							<th class=" colLFT colQteDem" st-sort="listLFT.qteDem">qte. Dem.</th>
+							<th class="firstTd">
+								<table >
+									<thead>
+										<tr>
+											<th class="colRep" st-sort="triRep.rep">REP</th>
+											<th class="colRep" st-sort="listLFT.listRep.idgRep">IDG Rep.</th>
+											<th class="colRep" st-sort="listLFT.listRep.designRep">Désign. Rep.</th>
+											<th class="colRep lastTd" st-sort="listLFT.listRep.qteRep">qte. Rep.</th>
+										</tr>
+									</thead>
+								</table >
+							</th>
+						</tr>
+					</thead>
+				</table >
+			</th>
+		</tr>
+		<tr>
+			<th class="colFT" ng-show="showDateFT" ><input st-search="dateFT" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th class="colFT"><input st-search="nomFT" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th class="colFT"><input st-search="Neutr" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th class="colFT"><input st-search="RepFT" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th class="colFT"><input st-search="dateAR1" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th class="colFT"><input st-search="immat" placeholder="search" class="input-sm form-control" type="search"/></th>
+			<th  class="firstTd">
+				<table >
+					<thead>
+						<tr class="firstTr">
+							<th class="colLFT colIdLFT"><input st-search="listLFT.idLFT" placeholder="search" class="input-sm form-control" type="search"/></th>
+							<th class="colLFT colIndice"><input st-search="listLFT.indice" placeholder="search" class="input-sm form-control" type="search"/></th>
+							<th class="colLFT colIdgDem"><input st-search="listLFT.idgDem" placeholder="search" class="input-sm form-control" type="search"/></th>
+							<th class="colLFT colDesignDem"><input st-search="listLFT.designDem" placeholder="search" class="input-sm form-control" type="search"/></th>
+							<th class="colLFT colQteDem"><input st-search="listLFT.qteDem" placeholder="search" class="input-sm form-control" type="search"/></th>
+							<th class="firstTd">
+								<table >
+									<thead>
+										<tr class="firstTr">
+											<th class="colRep"><input st-search="listLFT.listRep.rep" placeholder="search" class="input-sm form-control" type="search"/></th>
+											<th class="colRep"><input st-search="listLFT.listRep.idgRep" placeholder="search" class="input-sm form-control" type="search"/></th>
+											<th class="colRep"><input st-search="listLFT.listRep.designRep" placeholder="search" class="input-sm form-control" type="search"/></th>
+											<th class="colRep lastTd"><input st-search="listLFT.listRep.qteRep" placeholder="search" class="input-sm form-control" type="search"/></th>
+										</tr>
+									</thead>
+								</table >
+							</th>
+						</tr>
+					</thead>
+				</table >
+			
+		</tr>
+		</thead>
+		<tbody>
+		<tr st-select-row="row" ng-repeat="row in myDataInit" class="lign">
+			<td class="colFT" ng-show="showDateFT" >{{row.dateFT | date}}</td>
+			<td class="colFT">{{row.nomFT}}</td>
+			<td class="colFT">{{row.Neutr}}</td>
+			<td class="colFT">{{row.RepFT}}</td>
+			<td class="colFT">{{row.dateAR1 | date}}</td>
+			<td class="colFT">{{row.immat}}</td>
+			<td class="firstTd">
+				<table class="">
+					</tbody>
+						<tr class="firstTr" ng-repeat="row2 in row.listLFT">
+							<td class="colLFT colIdLFT">{{row2.idLFT}}</td>
+							<td class="colLFT colIndice">{{row2.indice}}</td>
+							<td class="colLFT colIdgDem">{{row2.idgDem}}</td>
+							<td class="colLFT colDesignDem">{{row2.designDem}}</td>
+							<td class="colLFT colQteDem">{{row2.qteDem}}</td>
+							<td class="firstTd">
+								<table class="">
+									<tbody>
+										<tr class="firstTr" ng-repeat="row3 in row2.listRep">
+											<td class="colRep">{{row3.rep}}</td>
+											<td class="colRep">{{row3.idgRep}}</td>
+											<td class="colRep">{{row3.designRep}}</td>
+											<td class="colRep lastTd">{{row3.qteRep}}</td>
+										</tr>
+									</tbody>
+								</table>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</body>
+
+</html>
