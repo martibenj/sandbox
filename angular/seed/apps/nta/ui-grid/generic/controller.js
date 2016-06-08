@@ -40,7 +40,7 @@ app.controller('MyCtrl', function($scope){
 	$scope.gridOptions = {
 		data : 'myDataTraitee',
 		multiSelect : false,
-		rowTemplate : '<div ng-class="{\'gray\': grid.appScope.compteur(row) }"> <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader}"  ui-grid-cell></div></div>',
+		rowTemplate : '<div ng-class="{\'gray\': grid.appScope.rowFormatter(row) }"> <div ng-repeat="(colRenderIndex, col) in colContainer.renderedColumns track by col.colDef.name" class="ui-grid-cell" ng-class="{ \'ui-grid-row-header-cell\': col.isRowHeader}"  ui-grid-cell></div></div>',
 			
 		columnDefs : [{
 			field : 'idFT',
@@ -55,32 +55,29 @@ app.controller('MyCtrl', function($scope){
 	$scope.cpt = 0;
 	$scope.prevValue = '';
 	$scope.prevRes = true;
+	
 	$scope.compteur = function(row) {
 		$scope.cpt++;
 		console.log($scope.cpt);
 	}
-	$scope.hey = function(row) {
-		console.log("hey");
-	}
 
-
-//	$scope.rowFormatter = function(row) {
-//		$scope.cpt++
-//		var res =false;
-//		console.log(row)
-//		if ($scope.prevValue != row.entity.idFT) {
-//			res = !$scope.prevRes;
-//		}
-//		else
-//		{
-//			res = $scope.prevRes;
-//		}
-//		$scope.prevValue = row.entity.idFT;
-//		$scope.prevRes = res;
+	$scope.rowFormatter = function(row) {
+		$scope.cpt++
+		var res =false;
+		console.log(row)
+		if ($scope.prevValue != row.entity.idFT) {
+			res = !$scope.prevRes;
+		}
+		else
+		{
+			res = $scope.prevRes;
+		}
+		$scope.prevValue = row.entity.idFT;
+		$scope.prevRes = res;
 		
-//		console.log($scope.cpt);
-//		return res;
-//	};
+		console.log($scope.cpt);
+		return res;
+	};
 
 	$scope.myDataTraitee = [];
 
