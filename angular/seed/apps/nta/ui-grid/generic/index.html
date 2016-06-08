@@ -20,17 +20,15 @@
 
 
 Contenu des data à afficher dans le tableau<br/>
-<br/>
-- Sous forme de div :<br/>
-	<div ng-repeat="ft in myDataInit">
-		<div ng-repeat="lft in ft.listLFT">
-			Une ft "{{ft.idFT}}"<br/>
-			contenant une lft "{{lft.idLFT}}""
-		</div>
-		<br/>
-	</div>
-
-- Sous forme de ul/li :
+<!-- <br/> -->
+<!-- - Sous forme de div :<br/> -->
+<!-- 	<div ng-repeat="ft in myDataInit"> -->
+<!-- 		<div ng-repeat="lft in ft.listLFT"> -->
+<!-- 			Une ft "{{ft.idFT}}"<br/> -->
+<!-- 			contenant une lft "{{lft.idLFT}}"" -->
+<!-- 		</div> -->
+<!-- 		<br/> -->
+<!-- 	</div> -->
 	<ul ng-repeat="ft in myDataInit">
 		<li>Une ft "{{ft.idFT}}"</li>
 		<ul>
