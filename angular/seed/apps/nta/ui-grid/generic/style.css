@@ -1,18 +1,12 @@
 /*style.css*/
-.myGrid {
-	width: 500px;
-	height: 250px;
-}
 
-.grid {
-	width: 500px;
-	height: 250px;
-}
 
-.red .ui-grid-cell-contents {
+
+
+.red {
 	background-color: red;
 }
 
-.gray .ui-grid-cell-contents {
+.gray{
 	background-color: gray;
 }
