@@ -54,9 +54,9 @@ h2{
 	background-color : rgba(255, 165, 0, 0.50) !important;
 }
 
-.ag-fresh .ag-body .ag-row-odd{
+/*.ag-fresh .ag-body .ag-row-odd{
 	background-color : #cccccc;
-}
+}*/
 
 .ag-fresh .ag-body .ag-row-selected{
 	background-color : #b0e0e6;

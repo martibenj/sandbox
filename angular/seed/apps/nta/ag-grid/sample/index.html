@@ -26,12 +26,13 @@
 
 <body >	
 	<h2>{{title}}</h2>
+	<span class="glyphicon glyphicon-cog" ng-click="showDiv = !showDiv"></span>
 	<p id="selectedRows"></p>
-	<div>
+	<div ng-show="showDiv">
 		<h4>Paramètre :</h4>
 		<input type="checkbox" ng-click="hideDateFT(showDateFT = !showDateFT)">Date FT</input>
-		<button ng-click="cl()">dd</button>
 	</div>
+	<button ng-click="testCheckbox()">Test checkbox</button>
 	<div ag-grid="gridOptions" class="myGrid ag-fresh" ></div>
 </body>
 

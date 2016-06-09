@@ -250,7 +250,7 @@ app.controller('MyCtrl', function($scope) {
 		$scope.gridOptions.columnApi.setColumnVisible('dateFT', show);
 	}
 	//$scope.gridOptions.angularCompileRows = true;
-	
+	var indCheck = 0;
 	var checkBoxesCheked = [];
 	var columnDefs = [
 		{headerName : '', 
@@ -258,48 +258,62 @@ app.controller('MyCtrl', function($scope) {
 		headerCellTemplate : '<div><input type="checkbox" ng-click="checkAll" ></input></div>', 
 		cellRenderer : function(params)
 						{
-							var html = '<input type="checkbox" ng-click="check()" ></input>';
-							params.$scope.check = function (){
-								//console.log("coucou");
+							var html = '<input id="'+indCheck+'" type="checkbox" ng-click="check('+indCheck+')" ></input>';
+							params.$scope.check = function (ind){
+								console.log("check() début : checkBoxesCheked.length : "+checkBoxesCheked.length);
+								$scope.gridOptions.api.forEachNode(function (node) {
+									if (node.id == ind) {
+											node.setSelected(true);
+										}
+								});
 								var selectedRows = $scope.gridOptions.api.getSelectedRows();
 								var exist = false;
 								selectedRows.forEach(function(selectedRow, index) {
+									console.log("check() forEach");
 									for (var i = 0 ; i < checkBoxesCheked.length ; i++){
-										//console.log("checkBoxesCheked[i] : "+checkBoxesCheked[i]);
+										console.log("check() : checkBoxesCheked["+i+"] : "+checkBoxesCheked[i]);
 										if (checkBoxesCheked[i] == selectedRow.idFT){
 											checkBoxesCheked.splice(i, 1);
 											exist = true;
 										}
 									}
-									if(!exist)
+									if(!exist){
 										checkBoxesCheked[checkBoxesCheked.length] = selectedRow.idFT;
+										var lengthMun = checkBoxesCheked.length - 1;
+										console.log("check() : checkBoxesCheked["+lengthMun+"] : "+checkBoxesCheked[lengthMun]);
+										console.log("check() : selectedRow.idFT : "+selectedRow.idFT);
+									}
 								});
+								var lengthMun = checkBoxesCheked.length - 1;
+								console.log("check() fin : checkBoxesCheked["+lengthMun+"] : "+checkBoxesCheked[lengthMun]);
+								console.log("check() fin : checkBoxesCheked.length : "+checkBoxesCheked.length);
 							}
+							indCheck++;
 							return html;
 						}},
 		{headerName : 'FT',
         children : [
-			{headerName : "Date FT", field : 'dateFT', cellClass : 'columnFT'},
-			{headerName : "FT", field : 'nomFT', cellClass : 'columnFT'},
-			{headerName : "Neutr.", field : 'Neutr', cellClass : 'columnFT', cellClassRules: neutrCellClassRules},
-			{headerName : "Rep. FT", field : 'RepFT', cellClass : 'columnFT', cellClassRules: repCellClassRules},
-			{headerName : "Date AR1", field : 'dateAR1', cellClass : 'columnFT'},
-			{headerName : "Immat.", field : 'immat', cellClass : 'columnFT'}
+			{headerName : "Date FT", field : 'dateFT', cellClass : 'columnFT', width : 80},
+			{headerName : "FT", field : 'nomFT', cellClass : 'columnFT', width : 150},
+			{headerName : "Neutr.", field : 'Neutr', cellClass : 'columnFT', cellClassRules: neutrCellClassRules, width : 65},
+			{headerName : "Rep. FT", field : 'RepFT', cellClass : 'columnFT', cellClassRules: repCellClassRules, width : 80},
+			{headerName : "Date AR1", field : 'dateAR1', cellClass : 'columnFT', width : 90},
+			{headerName : "Immat.", field : 'immat', cellClass : 'columnFT', width : 70}
 		]},
 		{headerName: 'LFT',
         children: [
-			{headerName : "LFT", field : 'idLFT', cellClass : 'columnLFT'},
-			{headerName : "Indice", field : 'indice', cellClass : 'columnLFT'},
-			{headerName : "IDG Dem.", field : 'idgDem', cellClass : 'columnLFT'},
-			{headerName : "Désign. Dem.", field : 'designDem', cellClass : 'columnLFT'},
-			{headerName : "Qté Dem.", field : 'qteDem', cellClass : 'columnLFT'}
+			{headerName : "LFT", field : 'idLFT', cellClass : 'columnLFT', width : 165},
+			{headerName : "Indice", field : 'indice', cellClass : 'columnLFT', width : 65},
+			{headerName : "IDG Dem.", field : 'idgDem', cellClass : 'columnLFT', width : 95},
+			{headerName : "Désign. Dem.", field : 'designDem', cellClass : 'columnLFT', width : 150},
+			{headerName : "Qté Dem.", field : 'qteDem', cellClass : 'columnLFT', width : 95}
 		]},
 		{headerName: 'Réponse',
         children: [
-			{headerName : "Rep.", field : 'rep', cellClass : 'columnRep', cellClassRules: repCellClassRules},
-			{headerName : "IDG Rep.", field : 'idgRep', cellClass : 'columnRep'},
-			{headerName : "Désign. Rep.", field : 'designRep', cellClass : 'columnRep'},
-			{headerName : "Qté Rep.", field : 'qteRep', cellClass : 'columnRep'}
+			{headerName : "Rep.", field : 'rep', cellClass : 'columnRep', cellClassRules: repCellClassRules, width : 65},
+			{headerName : "IDG Rep.", field : 'idgRep', cellClass : 'columnRep', width : 95},
+			{headerName : "Désign. Rep.", field : 'designRep', cellClass : 'columnRep', width : 150},
+			{headerName : "Qté Rep.", field : 'qteRep', cellClass : 'columnRep', width : 95}
 		]},
     ];
 	
@@ -343,6 +357,21 @@ app.controller('MyCtrl', function($scope) {
         rowData: $scope.myDataSynth
     };
 	
+	$scope.prevIndice = 0;
+	$scope.prevValue = '';
+	$scope.tabRowColor=[{'background-color': '#ccc'}, {'background-color': 'white'}];
+	$scope.gridOptions.getRowStyle = function(params) {
+		var res = false;
+		if ($scope.prevValue != params.data.idFT) {
+			$scope.prevIndice = 1 - $scope.prevIndice;
+			res = $scope.tabRowColor[$scope.prevIndice];
+		} else {
+			res = $scope.tabRowColor[$scope.prevIndice];
+		}
+		$scope.prevValue = params.data.idFT;
+		return res;
+	}
+	
 	function onSelectionChanged() {
 		var selectedRows = $scope.gridOptions.api.getSelectedRows();
 		var selectedRowsString = '';
@@ -356,9 +385,9 @@ app.controller('MyCtrl', function($scope) {
 	}
 	
 	$scope.showDive = true;
-	$scope.cl = function(){
+	$scope.testCheckbox = function(){
 		for (var i = 0 ; i < checkBoxesCheked.length ; i++)
-			console.log("checkBoxesCheked["+i+"] : "+checkBoxesCheked[i]);
+			console.log("testCheckbox() : checkBoxesCheked["+i+"] : "+checkBoxesCheked[i]);
 	}
 });
 
