@@ -25,15 +25,98 @@
 </head>
 
 <body >	
+<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuRA">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand"><span class="glyphicon glyphicon-home"></span></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="menuRA">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#" class="" >Réception des appels</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Attente décision</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Suivi expédition</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Historique</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Paramètre</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="">
+						<button type="button" class="btn btnDeco navbar-btn">Déconnexion</button>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
 	<h2>{{title}}</h2>
-	<span class="glyphicon glyphicon-cog" ng-click="showDiv = !showDiv"></span>
-	<p id="selectedRows"></p>
+	<div class="row divBut">
+		<button ng-click="" class="btnCog" ><span class="glyphicon glyphicon-cog" ng-click="showDiv = !showDiv"></span></button>
+		<button ng-click="" class="btn btnDetail">Importer FT</button>
+		<button ng-click="" class="btn btnDetail">Traiter FT</button>
+		<button ng-click="" class="btn btnDetail">Détail FT</button>
+		<button ng-click="testCheckbox()" class="btn btnFT">Envoie AR1</button>
+		<button ng-click="" class="btn btnLFT">Envoie AR2</button>
+		<button ng-click="" class="btn btnNeutr">Neutralisation</button>
+		<button ng-click="" class="btn btnDetail">Exporter</button>
+		<button ng-click="" class="btn btnFT">Rep FT</button>
+	</div>
 	<div ng-show="showDiv">
 		<h4>Paramètre :</h4>
 		<input type="checkbox" ng-click="hideDateFT(showDateFT = !showDateFT)">Date FT</input>
 	</div>
-	<button ng-click="testCheckbox()">Test checkbox</button>
 	<div ag-grid="gridOptions" class="myGrid ag-fresh" ></div>
+	
+	<h2>Détail</h2>
+	<p ng-show="!showGridFT" class="plusMoins"><span class="glyphicon glyphicon-plus-sign" ng-click="showGridFT = !showGridFT"> Détail FT et LFT</span></p>
+	<p ng-show="showGridFT" class="plusMoins"><span class="glyphicon glyphicon-minus-sign" ng-click="showGridFT = !showGridFT"> Détail FT et LFT</span></p>
+	<div ng-show="showGridFT">
+		<div ag-grid="ftGridOptions" class="ftGrid ag-fresh col-lg-12" ></div>
+		<div ag-grid="lftGridOptions" class="detailGrid ag-fresh col-lg-12" ></div>
+	</div>
+	
+	<div class="row divBut">
+		<button ng-click="" class="btn btnRep">CI</button>
+		<button ng-click="" class="btn btnRep">Ajouter</button>
+	</div>
+	<div ag-grid="repGridOptions" class="detailGrid ag-fresh col-lg-12" ></div>
+	
+	<h2>Analyse</h2>
+	<div class="row divBut">
+		<div class="row">
+			<div class="col-lg-3 plusMoins">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Rechercher..." 
+						   onpaste="onFilterChanged(this.value)"
+						   oninput="onFilterChanged(this.value)"
+						   onchange="onFilterChanged(this.value)"
+						   onchange="onFilterChanged(this.value)"
+						   onkeydown="onFilterChanged(this.value)"
+						   onkeyup="onFilterChanged(this.value)">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span> Rechercher</button>
+					</span>
+				</div><!-- /input-group -->
+			</div><!-- /.col-lg-6 -->
+			<button ng-click="" class="btn btnAn">Historique</button>
+			<input type="checkbox" ng-click="" class="plusMoins"> Equivalents</input>
+		</div><!-- /.row -->
+	</div>
+	<div ag-grid="analyseGridOptions" class="analyseGrid ag-fresh col-lg-12" ></div>
 </body>
 
 </html>

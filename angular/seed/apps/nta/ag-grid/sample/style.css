@@ -42,6 +42,27 @@ h2{
 	width : 100%;
 }
 
+.analyseGrid{
+	text-align : center;
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
+.ftGrid{
+	text-align : center;
+	height : 65px;
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
+.detailGrid{
+	text-align : center;
+	height : 120px;
+	/*width : 100%;*/
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
 .green{
 	background-color : rgba(0, 158, 15, 0.50) !important;
 }
@@ -97,23 +118,89 @@ h2{
 /*-------------- END Grid ----------*/
 
 /*-------------- PARTIE DETAIL ----------*/
-.divDetail{
-	display : flex;
+.divBut{
+	display : inline;
+	margin-top : 1%;
 }
 
-.divButton{
-	width : 13%;
-	margin-left : 2%;
+.plusMoins{
+	margin-left : 1%;
 }
+
+
 
 .btnDetail{
-	margin-bottom : 2%;
-	background-color : cornflowerblue;
+	margin-left : 1%;
+	background-color : #2b78e4;
 	color : white;
 }
 
 .btnDetail:hover{
+	background-color : #2b78e4;
+}
+
+.btnFT{
+	margin-left : 1%;
 	background-color : #9fc5f8;
+}
+
+.btnFT:hover{
+	background-color : #9fc5f8;
+	color : white;
+}
+
+.btnLFT{
+	margin-left : 1%;
+	background-color : #ffe599;
+}
+
+.btnLFT:hover{
+	background-color : #ffe599;
+	color : white;
+}
+
+.btnNeutr{
+	margin-left : 1%;
+	background-color : #ff9900;
+	color : white;
+}
+
+.btnNeutr:hover{
+	background-color : #ff9900;
+}
+
+.btnCog{
+	background-color : white;
+	border : 1px solid grey;
+	border-radius : 4px;
+	padding : 6px 12px;
+	margin-left : 1%;
+}
+
+.btnCog:hover{
+	background-color : grey;
+	color : white;
+}
+
+.btnRep{
+	margin-left : 1%;
+	background-color : #b4a7d6;
+}
+
+.btnRep:hover{
+	background-color : #b4a7d6;
+	color : white;
+}
+
+.btnAn{
+	margin-left : 1%;
+	margin-right : 1%;
+	background-color : #b6d7a8;
+}
+
+.btnAn:hover{
+	background-color : #b6d7a8;
+	color : white;
 }
 /*-------------- END Detail ----------*/
 
