@@ -2,16 +2,18 @@
 /*-------------- NAVBAR ----------*/
 .navbar-default{
 	background-image : inherit;
-	background-color : cornflowerblue;
+	background-color : #565B47;
 }
 
 .navbar-default .navbar-nav>.active>a{
 	background-image : inherit;
-	background-color : aliceblue;
+	background-color : #987E5F;
+	color : white;
 }
 
-.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
-	background-color : aliceblue;
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover{
+	background-color : #987E5F;
+	color : white;
 }
 
 .navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand{
@@ -203,4 +205,10 @@ h2{
 	color : white;
 }
 /*-------------- END Detail ----------*/
-
+/*-------------- RepLFT ----------*/
+.divRepLFT{
+	background-color : rgba(131, 117, 169, 0.19);
+	padding : 2% 0% 1% 1%;
+	min-height : 370px;
+}
+/*-------------- END RepLFT ----------*/

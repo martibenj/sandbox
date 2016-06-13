@@ -2,9 +2,16 @@
 agGrid.initialiseAgGridWithAngular1(angular);
 var app = angular.module('myApp', ["agGrid"]);
 app.controller('MyCtrl', function($scope) {
-
+	
+	
+	/*-----------------------------------------*/
+	/*----------- RECEPTION APPELS ------------*/
+	/*-----------------------------------------*/
+	
+	/*-- Titre de la page*/
 	$scope.title = "Réception des appels";
 
+	/*-- Données complètes*/
 	$scope.myDataInit = [ {
 		idFT : "1",
 		dateFT : "01/01/2016",
@@ -235,24 +242,31 @@ app.controller('MyCtrl', function($scope) {
 	}
 	];
 	
+	/*-- Régle de style pour les cellules avec des réponses, Vert pour "OK" et rouge pour "KO"*/
 	var repCellClassRules = {
 		'green': "x == 'OK'",
 		'red': "x == 'KO'"
 	};
 	
+	/*-- Régle de style pour les cellules avec neutralisation, orange pour "N"*/
 	var neutrCellClassRules = {
 		'orange': "x == 'N'"
 	};
 
+	/*-- Booleans d'apparition/cache de la colonne Date FT*/
 	$scope.showDateFT = true;
 	
+	/*-- Fonction d'apparition/cache de la colonne Date FT*/
 	$scope.hideDateFT = function (show) {
 		$scope.gridOptions.columnApi.setColumnVisible('dateFT', show);
 	}
-	//$scope.gridOptions.angularCompileRows = true;
+	
 	var indCheck = 0;
 	var checkBoxesCheked = [];
+	
+	/*-- Liste des entêtes des colonnes du tableau de synthèse*/
 	var columnDefs = [
+		/*-- Colonne de checkBoxes*/
 		{headerName : '', 
 		width : 30, 
 		headerCellTemplate : '<div><input type="checkbox" ng-click="checkAll" ></input></div>', 
@@ -291,6 +305,7 @@ app.controller('MyCtrl', function($scope) {
 							indCheck++;
 							return html;
 						}},
+		/*-- Colonnes de FT*/
 		{headerName : 'FT',
         children : [
 			{headerName : "Date FT", field : 'dateFT', cellClass : 'columnFT', width : 80},
@@ -301,15 +316,17 @@ app.controller('MyCtrl', function($scope) {
 			{headerName : "Date AR1", field : 'dateAR1', cellClass : 'columnFT', width : 90},
 			{headerName : "Immat.", field : 'immat', cellClass : 'columnFT', width : 70}
 		]},
+		/*-- Colonnes de LFT*/
 		{headerName: 'LFT',
         children: [
 			{headerName : "Alerte", field : 'alerte', cellClass : 'columnLFT', width : 65},
-			{headerName : "LFT", field : 'idLFT', cellClass : 'columnLFT', width : 165},
+			{headerName : "LFT", field : 'nomLFT', cellClass : 'columnLFT', width : 165},
 			{headerName : "Indice", field : 'indice', cellClass : 'columnLFT', width : 65},
 			{headerName : "IDG Dem.", field : 'idgDem', cellClass : 'columnLFT', width : 95},
 			{headerName : "Désign. Dem.", field : 'designDem', cellClass : 'columnLFT', width : 150},
 			{headerName : "Qté Dem.", field : 'qteDem', cellClass : 'columnLFT', width : 95}
 		]},
+		/*-- Colonnes de Réponse*/
 		{headerName: 'Réponse',
         children: [
 			{headerName : "Rep.", field : 'rep', cellClass : 'columnRep', cellClassRules: repCellClassRules, width : 65},
@@ -319,6 +336,7 @@ app.controller('MyCtrl', function($scope) {
 		]},
     ];
 	
+	/*-- Création de la liste qui remplira le tableau de synthèse*/
 	$scope.myDataSynth = [];
 	angular.forEach($scope.myDataInit, function(itemOfTable) {
 		angular.forEach(itemOfTable.listLFT, function(itemLFT) {
@@ -333,7 +351,7 @@ app.controller('MyCtrl', function($scope) {
 					dateAR1 : itemOfTable.dateAR1,
 					immat : itemOfTable.immat,
 					alerte : itemLFT.alerte,
-					idLFT : itemLFT.idLFT,
+					nomLFT : itemLFT.nomLFT,
 					indice : itemLFT.indice,
 					idgDem : itemLFT.idgDem,
 					designDem : itemLFT.designDem,
@@ -347,153 +365,33 @@ app.controller('MyCtrl', function($scope) {
 		});
 	});
 
+	/*-- Options du tableau de synthèse*/
     $scope.gridOptions = {
-        columnDefs: columnDefs,
-		enableSorting: true,
-		enableFilter: true,
-		groupHeaders: true,
-		rowHeight: 22,
-		autoSizeColumns : true,
-		suppressMovableColumns : true,
-		angularCompileRows : true,
-		rowSelection: 'single',
-		onSelectionChanged: onSelectionChanged,
-        rowData: $scope.myDataSynth
+        columnDefs: columnDefs,	/*-- Les entêtes des colonnes*/
+		enableSorting: true, 	/*-- Possibilité de trier une colonne*/
+		enableFilter: true, 	/*-- Possibilité de filtrer une colonne*/
+		groupHeaders: true, 	/*-- Possibilité de grouper les colonnes dans l'entête*/
+		rowHeight: 22, 			/*-- Hauteur des lignes*/
+		suppressMovableColumns : true,	/*-- Empeche les colonne d'etre reorganisé*/
+		angularCompileRows : true, 		/*-- Permet d'utiliser angularjs dans une ligne/cellule*/
+		rowSelection: 'single', 		/*-- Possibilité de selectionner une seule ligne a la fois*/
+		onSelectionChanged: onSelectionChanged, /*-- Fonction apelé a la selection d'une ligne*/
+        rowData: $scope.myDataSynth 	/*-- Données du tableau*/
     };
-
-	var ftColumnDefs = [
-		{headerName : "Date FT", field : 'dateFT', cellClass : 'columnFT', width : 80},
-		{headerName : "FT", field : 'nomFT', cellClass : 'columnFT', width : 150},
-		{headerName : "Lock", field : 'lock', cellClass : 'columnFT', width : 55},
-		{headerName : "Neutr.", field : 'Neutr', cellClass : 'columnFT', cellClassRules: neutrCellClassRules, width : 65},
-		{headerName : "Rep. FT", field : 'RepFT', cellClass : 'columnFT', cellClassRules: repCellClassRules, width : 80},
-		{headerName : "Cause", field : 'cause', cellClass : 'columnFT', width : 90},
-		{headerName : "Date AR1", field : 'dateAR1', cellClass : 'columnFT', width : 90},
-		{headerName : "Parc", field : 'parc', cellClass : 'columnFT', width : 90},
-		{headerName : "Site", field : 'site', cellClass : 'columnFT', width : 90},
-		{headerName : "Véhi.", field : 'vehi', cellClass : 'columnFT', width : 90},
-		{headerName : "Immat.", field : 'immat', cellClass : 'columnFT', width : 70},
-		{headerName : "Opex", field : 'opex', cellClass : 'columnFT', width : 70},
-		{headerName : "Dem. Compl.", field : 'DemCompl', cellClass : 'columnFT', width : 110},
-		{headerName : "Tranche", field : 'tranche', cellClass : 'columnFT', width : 80}
-	];
-	
-	var lftColumnDefs = [
-		{headerName : "Alerte", field : 'alerte', cellClass : 'columnLFT', width : 65},
-		{headerName : "LFT", field : 'nomLFT', cellClass : 'columnLFT', width : 165},
-		{headerName : "Indice", field : 'indice', cellClass : 'columnLFT', width : 65},
-		{headerName : "NNO", field : 'nno', cellClass : 'columnLFT', width : 65},
-		{headerName : "CF", field : 'cf', cellClass : 'columnLFT', width : 65},
-		{headerName : "RF", field : 'rf', cellClass : 'columnLFT', width : 65},
-		{headerName : "IDG Dem.", field : 'idgDem', cellClass : 'columnLFT', width : 95},
-		{headerName : "Désign. Dem.", field : 'designDem', cellClass : 'columnLFT', width : 150},
-		{headerName : "Classe", field : 'classe', cellClass : 'columnLFT', width : 95},
-		{headerName : "Casse", field : 'casse', cellClass : 'columnLFT', width : 95},
-		{headerName : "Qté Dem.", field : 'qteDem', cellClass : 'columnLFT', width : 95},
-		{headerName : "RR", field : 'rr', cellClass : 'columnLFT', width : 95}
-	];
-
-	var repColumnDefs = [
-		{headerName : "LFT", field : 'nomLFT', cellClass : 'columnLFT', width : 165},
-		{headerName : "Rep.", field : 'rep', cellClass : 'columnRep', cellClassRules: repCellClassRules, width : 65},
-		{headerName : "Erreur", field : 'erreur', cellClass : 'columnRep', width : 65},
-		{headerName : "IDG Rep.", field : 'idgRep', cellClass : 'columnRep', width : 95},
-		{headerName : "CF Rep.", field : 'cfRep', cellClass : 'columnRep', width : 95},
-		{headerName : "RF Rep.", field : 'rfRep', cellClass : 'columnRep', width : 95},
-		{headerName : "NNO Rep.", field : 'nnoRep', cellClass : 'columnRep', width : 95},
-		{headerName : "Désign. Rep.", field : 'designRep', cellClass : 'columnRep', width : 150},
-		{headerName : "Qté Rep.", field : 'qteRep', cellClass : 'columnRep', width : 95},
-		{headerName : "Mag", field : 'mag', cellClass : 'columnRep', width : 95},
-		{headerName : "Stock", field : 'stock', cellClass : 'columnRep', width : 95},
-		{headerName : "OV", field : 'ov', cellClass : 'columnRep', width : 95},
-		{headerName : "Prix", field : 'prix', cellClass : 'columnRep', width : 95},
-		{headerName : "Com. Int.", field : 'ComInt', cellClass : 'columnRep', width : 95},
-		{headerName : "Trait.", field : 'trait', cellClass : 'columnRep', width : 95}
-	];
-	
-    $scope.ftGridOptions = {
-        columnDefs: ftColumnDefs,
-		enableSorting: true,
-		enableFilter: true,
-		groupHeaders: true,
-		rowHeight: 22,
-		autoSizeColumns : true,
-		suppressMovableColumns : true,
-        rowData: $scope.myDataFT
-    };
-	
-    $scope.lftGridOptions = {
-        columnDefs: lftColumnDefs,
-		enableSorting: true,
-		enableFilter: true,
-		groupHeaders: true,
-		rowHeight: 22,
-		autoSizeColumns : true,
-		suppressMovableColumns : true,
-        rowData: $scope.myDataLFT
-    };
-	
-    $scope.repGridOptions = {
-        columnDefs: repColumnDefs,
-		enableSorting: true,
-		enableFilter: true,
-		groupHeaders: true,
-		rowHeight: 22,
-		autoSizeColumns : true,
-		suppressMovableColumns : true,
-        rowData: $scope.myDataRep
-    };
-	
-	$scope.prevIndice = 0;
-	$scope.prevValue = '';
-	$scope.tabRowColor=[{'background-color': '#ccc'}, {'background-color': 'white'}];
-	$scope.gridOptions.getRowStyle = function(params) {
-		var res = false;
-		if ($scope.prevValue != params.data.idFT) {
-			$scope.prevIndice = 1 - $scope.prevIndice;
-			res = $scope.tabRowColor[$scope.prevIndice];
-		} else {
-			res = $scope.tabRowColor[$scope.prevIndice];
-		}
-		$scope.prevValue = params.data.idFT;
-		return res;
-	}
-	
-	$scope.repGridOptions.getRowStyle = function(params) {
-		var res = false;
-		if ($scope.prevValue != params.data.idLFT) {
-			$scope.prevIndice = 1 - $scope.prevIndice;
-			res = $scope.tabRowColor[$scope.prevIndice];
-		} else {
-			res = $scope.tabRowColor[$scope.prevIndice];
-		}
-		$scope.prevValue = params.data.idLFT;
-		return res;
-	}
-	
-	$scope.lftGridOptions.getRowStyle = function(params) {
-		var res = false;
-		if ($scope.prevValue != params.data.idLFT) {
-			$scope.prevIndice = 1 - $scope.prevIndice;
-			res = $scope.tabRowColor[$scope.prevIndice];
-		} else {
-			res = $scope.tabRowColor[$scope.prevIndice];
-		}
-		$scope.prevValue = params.data.idLFT;
-		return res;
-	}
 	
 	$scope.myDataFT = [];
 	$scope.myDataLFT = [];
 	$scope.myDataRep = [];
+	
+	/*-- Fonction appelé lors d'un clic sur une ligne du tableau de synthèse*/
 	function onSelectionChanged() {
-		$scope.showGridFT = true;
-		console.log("onSelectionChanged() : $scope.myDataFT.length : "+$scope.myDataFT.length);
+		//console.log("onSelectionChanged() : $scope.myDataFT.length : "+$scope.myDataFT.length);
 		
+		/*-- Vidage des tableaux en fonction de la ligne cliqué dans le tableau de synthèse*/
 		for (var i = $scope.myDataFT.length - 1 ; i >= 0 ; i--){
-			console.log("onSelectionChanged() 1 : i : "+i+" length : "+$scope.myDataFT.length);
+			//console.log("onSelectionChanged() 1 : i : "+i+" length : "+$scope.myDataFT.length);
 			$scope.myDataFT.splice(i,1);
-			console.log("onSelectionChanged() 2 : i : "+i+" length : "+$scope.myDataFT.length);
+			//console.log("onSelectionChanged() 2 : i : "+i+" length : "+$scope.myDataFT.length);
 		}
 			
 		for (var j = $scope.myDataLFT.length - 1 ; j >= 0 ; j--){
@@ -504,11 +402,13 @@ app.controller('MyCtrl', function($scope) {
 			$scope.myDataRep.splice(k,1);
 		}
 		
-		console.log("onSelectionChanged() : $scope.myDataFT.length : "+$scope.myDataFT.length);
+		//console.log("onSelectionChanged() : $scope.myDataFT.length : "+$scope.myDataFT.length);
 		var indFT = 0;
 		var indLFT = 0;
 		var selectedRows = $scope.gridOptions.api.getSelectedRows();
 		var selectedRowsString = '';
+		
+		/*-- Remplissage des tableaux de détail en fonction de la ligne cliqué dans le tableau de synthèse*/
 		selectedRows.forEach(function(selectedRow, index) {
 			angular.forEach($scope.myDataInit, function(itemOfTable) {
 				angular.forEach(itemOfTable.listLFT, function(itemLFT) {
@@ -585,15 +485,163 @@ app.controller('MyCtrl', function($scope) {
 		$scope.repGridOptions.api.sizeColumnsToFit();
 	}
 	
-	$scope.showDive = true;
-	$scope.showGridFT = false;
 	$scope.testCheckbox = function(){
 		for (var i = 0 ; i < checkBoxesCheked.length ; i++)
 			console.log("testCheckbox() : checkBoxesCheked["+i+"] : "+checkBoxesCheked[i]);
 	}
 	
 	
-	/*------------ANALYSE-------------*/
+	/*-------------------------------*/
+	/*----------- DETAIL ------------*/
+	/*-------------------------------*/
+	
+	/*-- Liste des entêtes des colonnes du tableau de détail d'un FT*/
+	var ftColumnDefs = [
+		{headerName : "Date FT", field : 'dateFT', cellClass : 'columnFT', width : 80},
+		{headerName : "FT", field : 'nomFT', cellClass : 'columnFT', width : 150},
+		{headerName : "Lock", field : 'lock', cellClass : 'columnFT', width : 55},
+		{headerName : "Neutr.", field : 'Neutr', cellClass : 'columnFT', cellClassRules: neutrCellClassRules, width : 65},
+		{headerName : "Rep. FT", field : 'RepFT', cellClass : 'columnFT', cellClassRules: repCellClassRules, width : 80},
+		{headerName : "Cause", field : 'cause', cellClass : 'columnFT', width : 90},
+		{headerName : "Date AR1", field : 'dateAR1', cellClass : 'columnFT', width : 90},
+		{headerName : "Parc", field : 'parc', cellClass : 'columnFT', width : 90},
+		{headerName : "Site", field : 'site', cellClass : 'columnFT', width : 90},
+		{headerName : "Véhi.", field : 'vehi', cellClass : 'columnFT', width : 90},
+		{headerName : "Immat.", field : 'immat', cellClass : 'columnFT', width : 70},
+		{headerName : "Opex", field : 'opex', cellClass : 'columnFT', width : 70},
+		{headerName : "Dem. Compl.", field : 'DemCompl', cellClass : 'columnFT', width : 110},
+		{headerName : "Tranche", field : 'tranche', cellClass : 'columnFT', width : 80}
+	];
+	
+	/*-- Liste des entêtes des colonnes du tableau de détail d'un LFT*/
+	var lftColumnDefs = [
+		{headerName : "Alerte", field : 'alerte', cellClass : 'columnLFT', width : 65},
+		{headerName : "LFT", field : 'nomLFT', cellClass : 'columnLFT', width : 165},
+		{headerName : "Indice", field : 'indice', cellClass : 'columnLFT', width : 65},
+		{headerName : "NNO", field : 'nno', cellClass : 'columnLFT', width : 65},
+		{headerName : "CF", field : 'cf', cellClass : 'columnLFT', width : 65},
+		{headerName : "RF", field : 'rf', cellClass : 'columnLFT', width : 65},
+		{headerName : "IDG Dem.", field : 'idgDem', cellClass : 'columnLFT', width : 95},
+		{headerName : "Désign. Dem.", field : 'designDem', cellClass : 'columnLFT', width : 150},
+		{headerName : "Classe", field : 'classe', cellClass : 'columnLFT', width : 95},
+		{headerName : "Casse", field : 'casse', cellClass : 'columnLFT', width : 95},
+		{headerName : "Qté Dem.", field : 'qteDem', cellClass : 'columnLFT', width : 95},
+		{headerName : "RR", field : 'rr', cellClass : 'columnLFT', width : 95}
+	];
+
+	/*-- Liste des entêtes des colonnes du tableau de détail d'une réponse*/
+	var repColumnDefs = [
+		{headerName : "LFT", field : 'nomLFT', cellClass : 'columnLFT', width : 165},
+		{headerName : "Rep.", field : 'rep', cellClass : 'columnRep', cellClassRules: repCellClassRules, width : 65},
+		{headerName : "Erreur", field : 'erreur', cellClass : 'columnRep', width : 65},
+		{headerName : "IDG Rep.", field : 'idgRep', cellClass : 'columnRep', width : 95},
+		{headerName : "CF Rep.", field : 'cfRep', cellClass : 'columnRep', width : 95},
+		{headerName : "RF Rep.", field : 'rfRep', cellClass : 'columnRep', width : 95},
+		{headerName : "NNO Rep.", field : 'nnoRep', cellClass : 'columnRep', width : 95},
+		{headerName : "Désign. Rep.", field : 'designRep', cellClass : 'columnRep', width : 150},
+		{headerName : "Qté Rep.", field : 'qteRep', cellClass : 'columnRep', width : 95},
+		{headerName : "Mag", field : 'mag', cellClass : 'columnRep', width : 95},
+		{headerName : "Stock", field : 'stock', cellClass : 'columnRep', width : 95},
+		{headerName : "OV", field : 'ov', cellClass : 'columnRep', width : 95},
+		{headerName : "Prix", field : 'prix', cellClass : 'columnRep', width : 95},
+		{headerName : "Com. Int.", field : 'ComInt', cellClass : 'columnRep', width : 95},
+		{headerName : "Trait.", field : 'trait', cellClass : 'columnRep', width : 95}
+	];
+	
+	/*-- Options du tableau de détail d'un FT*/
+    $scope.ftGridOptions = {
+        columnDefs: ftColumnDefs,
+		enableSorting: true,
+		enableFilter: true,
+		groupHeaders: true,
+		rowHeight: 22,
+		autoSizeColumns : true,
+		suppressMovableColumns : true,
+        rowData: $scope.myDataFT
+    };
+	
+	/*-- Options du tableau de détail d'un LFT*/
+    $scope.lftGridOptions = {
+        columnDefs: lftColumnDefs,
+		enableSorting: true,
+		enableFilter: true,
+		groupHeaders: true,
+		rowHeight: 22,
+		autoSizeColumns : true,
+		suppressMovableColumns : true,
+        rowData: $scope.myDataLFT
+    };
+	
+	/*-- Options du tableau de détail d'une Réponse*/
+    $scope.repGridOptions = {
+        columnDefs: repColumnDefs,
+		enableSorting: true,
+		enableFilter: true,
+		groupHeaders: true,
+		rowHeight: 22,
+		autoSizeColumns : true,
+		suppressMovableColumns : true,
+        rowData: $scope.myDataRep
+    };
+	
+	/*-- Colorisation des lignes du tableau de synthèse en fonction de l'id d'un FT*/
+	$scope.prevIndice = 0;
+	$scope.prevValue = '';
+	$scope.tabRowColor=[{'background-color': '#ccc'}, {'background-color': 'white'}];
+	$scope.gridOptions.getRowStyle = function(params) {
+		var res = false;
+		if ($scope.prevValue != params.data.idFT) {
+			$scope.prevIndice = 1 - $scope.prevIndice;
+			res = $scope.tabRowColor[$scope.prevIndice];
+		} else {
+			res = $scope.tabRowColor[$scope.prevIndice];
+		}
+		$scope.prevValue = params.data.idFT;
+		return res;
+	}
+	
+	/*-- Colorisation des lignes du tableau de détail d'une Réponse en fonction de l'id d'un LFT*/
+	$scope.repGridOptions.getRowStyle = function(params) {
+		var res = false;
+		if ($scope.prevValue != params.data.idLFT) {
+			$scope.prevIndice = 1 - $scope.prevIndice;
+			res = $scope.tabRowColor[$scope.prevIndice];
+		} else {
+			res = $scope.tabRowColor[$scope.prevIndice];
+		}
+		$scope.prevValue = params.data.idLFT;
+		return res;
+	}
+	
+	/*-- Colorisation des lignes du tableau de détail d'un LFT en fonction de l'id d'un LFT*/
+	$scope.lftGridOptions.getRowStyle = function(params) {
+		var res = false;
+		if ($scope.prevValue != params.data.idLFT) {
+			$scope.prevIndice = 1 - $scope.prevIndice;
+			res = $scope.tabRowColor[$scope.prevIndice];
+		} else {
+			res = $scope.tabRowColor[$scope.prevIndice];
+		}
+		$scope.prevValue = params.data.idLFT;
+		return res;
+	}
+	
+	/*-- Boolean d'apparition/cache des tableaux de détails FT et LFT*/
+	$scope.showGridFT = false;
+	
+	/*-- Fonction d'apparition/cache des tableaux de détails FT et LFT*/
+	$scope.fctshowGridFT = function(show){
+		$scope.showGridFT = !show;
+		$scope.ftGridOptions.api.sizeColumnsToFit();
+		$scope.lftGridOptions.api.sizeColumnsToFit();
+	}
+	
+	
+	/*--------------------------------*/
+	/*----------- ANALYSE ------------*/
+	/*--------------------------------*/
+	
+	/*-- Données du tableau ressource de la partie Analyse*/
 	$scope.myDataAnalyse = [{
 		id : '1', Type : 'IDG', 
 		PCS : '', 
@@ -667,7 +715,7 @@ app.controller('MyCtrl', function($scope) {
 	},{
 		id : '6', Type : 'bla', 
 		PCS : '', 
-		IDG : '20015515533', 
+		IDG : '20015515535', 
 		CRF : 'E5533', 
 		DEF : '123456', 
 		Design : 'EPISCOPE E55', 
@@ -681,7 +729,7 @@ app.controller('MyCtrl', function($scope) {
 	},{
 		id : '7', Type : 'IDG', 
 		PCS : '', 
-		IDG : '20015515533', 
+		IDG : '12345678901', 
 		CRF : 'E5533', 
 		DEF : '123456', 
 		Design : 'EPISCOPE E55', 
@@ -694,12 +742,13 @@ app.controller('MyCtrl', function($scope) {
 		ComInt : ''
 	}];
 
+	/*-- Liste des entêtes des colonnes du tableau ressource*/
 	var anColumnDefs = [
 		{headerName : "Type", field : 'Type'},
 		{headerName : "PCS", field : 'PCS'},
-		{headerName : "IDG", field : 'IDG'},
-		{headerName : "CRF", field : 'CRF'},
-		{headerName : "DEF", field : 'DEF'},
+		{headerName : "IDG", field : 'IDG', filter: 'number'},
+		{headerName : "CRF", field : 'CRF', filter: 'number'},
+		{headerName : "DEF", field : 'DEF', filter: 'number'},
 		{headerName : "Désign.", field : 'Design'},
 		{headerName : "Qté", field : 'Qte'},
 		{headerName : "Mag", field : 'Mag'},
@@ -710,6 +759,7 @@ app.controller('MyCtrl', function($scope) {
 		{headerName : "Com. Int.", field : 'ComInt'},
 	];
 	
+	/*-- Options du tableau ressource*/
     $scope.analyseGridOptions = {
         columnDefs: anColumnDefs,
 		enableSorting: true,
@@ -718,9 +768,13 @@ app.controller('MyCtrl', function($scope) {
 		rowHeight: 22,
 		autoSizeColumns : true,
 		suppressMovableColumns : true,
+		angularCompileRows : true,
+		rowSelection: 'single',
+		onSelectionChanged: onSelectionChanged2,
         rowData: $scope.myDataAnalyse
     };
 	
+	/*-- Colorisation des lignes du tableau ressource en fonction de l'id d'une ressource*/
 	$scope.tabRowColorA=[{'background-color': '#b6d7a8'}, {'background-color': 'white'}];
 	$scope.analyseGridOptions.getRowStyle = function(params) {
 		var res = false;
@@ -734,9 +788,22 @@ app.controller('MyCtrl', function($scope) {
 		$scope.analyseGridOptions.api.sizeColumnsToFit();
 		return res;
 	}
-
+	
+	/*-- Fonction de filtre en fonction de la recherche demandé*/
 	$scope.onFilterChanged = function (value) {
-		gridOptions.api.setQuickFilter(value);
+		$scope.analyseGridOptions.api.setQuickFilter(value);
+	}
+	
+	/*-- Fonction appelé lors d'un clic sur une ligne du tableau ressource*/
+	$scope.myDataRepLFT = [];
+	function onSelectionChanged2() {
+		var selectedRows = $scope.gridOptions.api.getSelectedRows();
+		var selectedRowsString = '';
+		selectedRows.forEach(function(selectedRow, index) {
+			angular.forEach($scope.myDataInit, function(itemOfTable) {
+				
+			});
+		});
 	}
 });
 
