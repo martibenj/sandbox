@@ -795,13 +795,22 @@ app.controller('MyCtrl', function($scope) {
 	}
 	
 	/*-- Fonction appelé lors d'un clic sur une ligne du tableau ressource*/
-	$scope.myDataRepLFT = [];
 	function onSelectionChanged2() {
-		var selectedRows = $scope.gridOptions.api.getSelectedRows();
+		console.log("onSelectionChanged2");
+		var selectedRows = $scope.analyseGridOptions.api.getSelectedRows();
 		var selectedRowsString = '';
 		selectedRows.forEach(function(selectedRow, index) {
-			angular.forEach($scope.myDataInit, function(itemOfTable) {
-				
+			angular.forEach($scope.myDataAnalyse, function(itemOfTable) {
+				console.log("onSelectionChanged2 selectedRow.id : "+selectedRow.id+" itemOfTable.id : "+itemOfTable.id);
+				if (itemOfTable.id == selectedRow.id){
+					console.log("onSelectionChanged2 if");
+					document.getElementById("inpIDG").value = selectedRow.IDG;
+					document.getElementById("inpCRFDEF").innerHTML = selectedRow.CRF+" "+selectedRow.DEF;
+					document.getElementById("inpDesign").innerHTML = selectedRow.Design; 
+					document.getElementById("inpQte").value = selectedRow.Qte; 
+					document.getElementById("inpMag").value = selectedRow.Mag;
+					document.getElementById("inpOAOV").value = selectedRow.OAOV;
+				}
 			});
 		});
 	}
