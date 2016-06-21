@@ -21,7 +21,7 @@ import org.junit.Test;
 import org.stringtemplate.v4.ST;
 
 /**
- * Created by a453958 on 21/06/2016.
+ * @author martinelli-b
  */
 public class STTest {
 
