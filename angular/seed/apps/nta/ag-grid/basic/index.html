@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html ng-app="myApp" ng-controller="MyCtrl">
+
+<head lang="en">
+<meta charset="utf-8">
+<title>{{title}}</title>
+
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-touch.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
+
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/ag-grid/4.2.6/ag-grid.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ag-grid/4.2.6/styles/ag-grid.css"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ag-grid/4.2.6/styles/theme-fresh.css"/>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script src="controller.js"></script>
+</head>
+
+<body >	
+<nav class="navbar navbar-default">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuRA">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand"><span class="glyphicon glyphicon-home"></span></a>
+			</div>
+
+			<div class="collapse navbar-collapse" id="menuRA">
+				<ul class="nav navbar-nav">
+					<li class="active">
+						<a href="#" class="" >Réception des appels</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Attente décision</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Suivi expédition</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Historique</a>
+					</li>
+					<li class="">
+						<a href="#" class="" >Paramètre</a>
+					</li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li class="">
+						<button type="button" class="btn btnDeco navbar-btn">Déconnexion</button>
+					</li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div>
+	</nav>
+	<h2>{{title}}</h2>
+	<div class="row divBut">
+		<button ng-click="" class="btnCog" ><span class="glyphicon glyphicon-cog" ng-click="showDiv = !showDiv"></span></button>
+		<button ng-click="" class="btn btnDetail">Importer FT</button>
+		<button ng-click="" class="btn btnDetail">Traiter FT</button>
+		<button ng-click="" class="btn btnDetail">Détail FT</button>
+		<button ng-click="testCheckbox()" class="btn btnFT">Envoie AR1</button>
+		<button ng-click="" class="btn btnLFT">Envoie AR2</button>
+		<button ng-click="" class="btn btnNeutr">Neutralisation</button>
+		<button ng-click="" class="btn btnDetail">Exporter</button>
+		<button ng-click="" class="btn btnFT">Rep FT</button>
+	</div>
+	<div ng-show="showDiv">
+		<h4>Paramètre :</h4>
+		<input type="checkbox" ng-click="hideDateFT(showDateFT = !showDateFT)">Date FT</input>
+	</div>
+	<div ag-grid="gridOptions" class="myGrid ag-fresh" ></div>
+	
+	<h2>Détail</h2>
+	<p ng-show="!showGridFT" class="plusMoins"><span class="glyphicon glyphicon-plus-sign" ng-click="fctshowGridFT(showGridFT)"> Détail FT et LFT</span></p>
+	<p ng-show="showGridFT" class="plusMoins"><span class="glyphicon glyphicon-minus-sign" ng-click="fctshowGridFT(showGridFT)"> Détail FT et LFT</span></p>
+	<div ng-show="showGridFT">
+		<div ag-grid="ftGridOptions" class="ftGrid ag-fresh col-lg-12" ></div>
+		<div ag-grid="lftGridOptions" class="detailGrid ag-fresh col-lg-12" ></div>
+	</div>
+	
+	<div class="row divBut">
+		<button ng-click="" class="btn btnRep">CI</button>
+		<button ng-click="" class="btn btnRep">Ajouter</button>
+	</div>
+	<div ag-grid="repGridOptions" class="detailGrid ag-fresh col-lg-12" ></div>
+	
+	<h2>Analyse</h2>
+	<div class="row divBut">
+		<div class="row">
+			<div class="col-lg-3 plusMoins">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Rechercher..." ng-model="myValue"/>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" ng-click="onFilterChanged(myValue)"><span class="glyphicon glyphicon-search"></span> Rechercher</button>
+					</span>
+				</div>
+			</div>
+			<button ng-click="" class="btn btnAn">Historique</button>
+			<input type="checkbox" ng-click="" class="plusMoins"> Equivalents</input>
+		</div>
+	</div>
+	<div ag-grid="analyseGridOptions" class="analyseGrid ag-fresh col-lg-12" ></div>
+	<h2 ng-click="showDivRepLFT = !showDivRepLFT">Réponse LFT</h2>
+	<div class="divRepLFT">
+		<form class="form-horizontal">
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">IDG</label>
+					<div class="col-sm-9">
+						<input id="inpIDG" type="text" class="form-control" placeholder="IDG" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">OV</label>
+					<div class="col-sm-9">
+						<input id="inpOAOV" type="text" class="form-control"placeholder="OV">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Magasin</label>
+					<div class="col-sm-9">
+						<input id="inpMag" type="text" class="form-control"placeholder="Magasin">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Emplacement</label>
+					<div class="col-sm-9">
+						<select class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Quantité</label>
+					<div class="col-sm-9">
+						<input id="inpQte" type="number" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-inline form-group">
+					<label for="" class="col-sm-3 control-label">Décision</label>
+					<div class="col-sm-9">
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+								OK
+							</label>
+						</div>
+						<div class="radio">
+							<label>
+								<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+								NOK
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-3">
+						<button class="btn btn-success">Enregistrer</button>
+					</div>
+					<div class="col-sm-3">
+						<button class="btn btn-danger">Annuler</button>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">NNO</label>
+					<div class="col-sm-9">
+						<p></p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">CRF DEF</label>
+					<div class="col-sm-9">
+						<p id="inpCRFDEF"></p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Désignation</label>
+					<div class="col-sm-9">
+						<p id="inpDesign"></p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Prix</label>
+					<div class="col-sm-9">
+						<input type="number" class="form-control"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Origine</label>
+					<div class="col-sm-9">
+						<select class="form-control"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-3 control-label">Erreur</label>
+					<div class="col-sm-9">
+						<select class="form-control"></select>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="form-group">
+					<label for="" class="col-sm-32 control-label">Commentaire réponse</label>
+					<div class="col-sm-32">
+						<textarea class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="" class="col-sm-32 control-label">Commentaire interne</label>
+					<div class="col-sm-32">
+						<textarea class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,214 @@
+/*style.css*/
+/*-------------- NAVBAR ----------*/
+.navbar-default{
+	background-image : inherit;
+	background-color : #565B47;
+}
+
+.navbar-default .navbar-nav>.active>a{
+	background-image : inherit;
+	background-color : #987E5F;
+	color : white;
+}
+
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>.active>a:hover{
+	background-color : #987E5F;
+	color : white;
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-brand{
+	color : white;
+}
+
+.btnDeco{
+	background-color : rgba(255, 0, 0, 0.85);
+	color : white;
+}
+
+.btnDeco:hover, .btnDeco:focus{
+	background-color : red;
+	color : white;
+}
+/*-------------- END NavBar ----------*/
+
+/*-------------- TITLE ----------*/
+h2{
+	text-align : center;
+}
+/*-------------- END Title ----------*/
+
+/*-------------- GRID ----------*/
+.myGrid{
+	text-align : center;
+	height : 300px;
+	width : 100%;
+}
+
+.analyseGrid{
+	text-align : center;
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
+.ftGrid{
+	text-align : center;
+	height : 65px;
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
+.detailGrid{
+	text-align : center;
+	height : 120px;
+	/*width : 100%;*/
+	margin-top : 1%;
+	margin-bottom : 1%;
+}
+
+.green{
+	background-color : rgba(0, 158, 15, 0.50) !important;
+}
+
+.red{
+	background-color : rgba(255, 0, 0, 0.50) !important;
+}
+
+.orange{
+	background-color : rgba(255, 165, 0, 0.50) !important;
+}
+
+/*.ag-fresh .ag-body .ag-row-odd{
+	background-color : #cccccc;
+}*/
+
+.ag-fresh .ag-body .ag-row-selected{
+	background-color : #b0e0e6;
+	border : 1px solid blue;
+}
+
+.hColumnFT {
+    background-color : #9fc5f8;
+    border-color : #337AB7;
+}
+  
+.hColumnLFT {
+    background-color : rgb(255, 229, 153);
+    border-color : #f0ad4e;
+}
+  
+.hColumnRep {
+    background-color : #b4a7d6;
+    border-color : #8375A9;
+}
+
+.columnFT {
+    background-color : rgba(51, 122, 183, 0.19);
+}
+  
+.columnLFT {
+    background-color : rgba(240, 173, 78, 0.19);
+}
+  
+.columnRep {
+    background-color : rgba(131, 117, 169, 0.19);
+}
+
+.gridDetail{
+	height : 150px !important;
+	margin-bottom : 2%;
+}
+/*-------------- END Grid ----------*/
+
+/*-------------- PARTIE DETAIL ----------*/
+.divBut{
+	display : inline;
+	margin-top : 1%;
+}
+
+.plusMoins{
+	margin-left : 1%;
+}
+
+
+
+.btnDetail{
+	margin-left : 1%;
+	background-color : #2b78e4;
+	color : white;
+}
+
+.btnDetail:hover{
+	background-color : #2b78e4;
+}
+
+.btnFT{
+	margin-left : 1%;
+	background-color : #9fc5f8;
+}
+
+.btnFT:hover{
+	background-color : #9fc5f8;
+	color : white;
+}
+
+.btnLFT{
+	margin-left : 1%;
+	background-color : #ffe599;
+}
+
+.btnLFT:hover{
+	background-color : #ffe599;
+	color : white;
+}
+
+.btnNeutr{
+	margin-left : 1%;
+	background-color : #ff9900;
+	color : white;
+}
+
+.btnNeutr:hover{
+	background-color : #ff9900;
+}
+
+.btnCog{
+	background-color : white;
+	border : 1px solid grey;
+	border-radius : 4px;
+	padding : 6px 12px;
+	margin-left : 1%;
+}
+
+.btnCog:hover{
+	background-color : grey;
+	color : white;
+}
+
+.btnRep{
+	margin-left : 1%;
+	background-color : #b4a7d6;
+}
+
+.btnRep:hover{
+	background-color : #b4a7d6;
+	color : white;
+}
+
+.btnAn{
+	margin-left : 1%;
+	margin-right : 1%;
+	background-color : #b6d7a8;
+}
+
+.btnAn:hover{
+	background-color : #b6d7a8;
+	color : white;
+}
+/*-------------- END Detail ----------*/
+/*-------------- RepLFT ----------*/
+.divRepLFT{
+	background-color : rgba(131, 117, 169, 0.19);
+	padding : 2% 0% 1% 1%;
+	min-height : 370px;
+}
+/*-------------- END RepLFT ----------*/
