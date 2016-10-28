@@ -21,152 +21,159 @@ import dataObjects.Projet;
 
 public class ZHello
 {
-    @SuppressWarnings("unchecked")
-    @Test
-    public void testComWeblo() throws Exception {
+  @SuppressWarnings("unchecked")
+  @Test
+  public void testComWeblo() throws Exception
+  {
 
-        JMXServiceURL serviceURL = new JMXServiceURL("t3", "locahost", 8888, "/jndi/" + "weblogic.management.mbeanservers.domainruntime");
-        Hashtable h = new Hashtable();
-        h.put(Context.SECURITY_PRINCIPAL, "system");
-        h.put(Context.SECURITY_CREDENTIALS, "12345678");
-        h.put(JMXConnectorFactory.PROTOCOL_PROVIDER_PACKAGES, "weblogic.management.remote");
+    JMXServiceURL serviceURL = new JMXServiceURL("t3", "locahost", 8888,
+                                                 "/jndi/" + "weblogic.management.mbeanservers.domainruntime");
+    Hashtable     h          = new Hashtable();
+    h.put(Context.SECURITY_PRINCIPAL, "system");
+    h.put(Context.SECURITY_CREDENTIALS, "12345678");
+    h.put(JMXConnectorFactory.PROTOCOL_PROVIDER_PACKAGES, "weblogic.management.remote");
 
-        JMXConnector j = JMXConnectorFactory.connect(serviceURL, h);
-        MBeanServerConnection m = j.getMBeanServerConnection();
-        ObjectName o = new ObjectName("com.bea:Name=wl10_domain_7001,Type=Server");
+    JMXConnector          j = JMXConnectorFactory.connect(serviceURL, h);
+    MBeanServerConnection m = j.getMBeanServerConnection();
+    ObjectName            o = new ObjectName("com.bea:Name=wl10_domain_7001,Type=Server");
 
-        String g = ""+m.getAttribute(o, "ListenPort");
-        System.out.println(g);
-        // MBeanServer server = (MBeanServer) ctx.lookup("java:comp/env");
-        // ObjectName o = new ObjectName("com.bea:Name=RuntimeService,Type=weblogic.management.mbeanservers.runtime.RuntimeServiceMBean");
-        // String srvName = "" + server.getAttribute(o, "ServerName");
+    String g = "" + m.getAttribute(o, "ListenPort");
+    System.out.println(g);
+    // MBeanServer server = (MBeanServer) ctx.lookup("java:comp/env");
+    // ObjectName o = new ObjectName("com.bea:Name=RuntimeService,Type=weblogic.management.mbeanservers.runtime
+    // .RuntimeServiceMBean");
+    // String srvName = "" + server.getAttribute(o, "ServerName");
 
-        // TestHelper.viderFichiersLog();
-        // ParametresLancementBatch parametresLancementBatch = ParametresLancementBatch.getNewValuedInstance();
-        // invoquerBatch(BATCH_SANS_CLE_MANTIS_3380, parametresLancementBatch);
+    // TestHelper.viderFichiersLog();
+    // ParametresLancementBatch parametresLancementBatch = ParametresLancementBatch.getNewValuedInstance();
+    // invoquerBatch(BATCH_SANS_CLE_MANTIS_3380, parametresLancementBatch);
+  }
+
+  @Ignore
+  public void testMachin()
+  {
+    Assert.assertTrue(Boolean.TRUE);
+  }
+
+  @Ignore("HEEYY")
+  public void testTruc()
+  {
+    Assert.assertTrue(Boolean.TRUE);
+  }
+
+  // public static void main(String[] args)
+  // {
+  // convertirLong();
+  // }
+  //
+  // private static void convertirLong()
+  // {
+  // long machin = Long.parseLong("220492800000");
+  //
+  // System.out.println(new Date(machin));
+  // }
+
+  @Test
+  public void test1()
+  {
+    // Projets ï¿½ ignorer du build gï¿½nï¿½ral Tiga automatisï¿½, ils seront lancï¿½s
+    // aprï¿½s coup une fois la serie automatique terminï¿½e
+    List<Projet> listeProjetsIgnores = new ArrayList<Projet>();
+    // Attention l'ordre est important
+    Projet pr = new Projet("BatchPurge", "B7");
+    pr.setNomEclipse("BatchPurge");
+    listeProjetsIgnores.add(pr);
+
+    pr = new Projet("BatchHistorisation", "B7");
+    pr.setNomEclipse("BatchHistorisation");
+    listeProjetsIgnores.add(pr);
+
+    pr = new Projet("BatchAdministration", "B2");
+    pr.setNomEclipse("BatchAdministration");
+    listeProjetsIgnores.add(pr);
+
+    pr = new Projet("BatchAdministrationIHM", "B4");
+    pr.setNomEclipse("BatchAdministrationIHM");
+    listeProjetsIgnores.add(pr);
+
+    pr = new Projet("TestsConfiguration", "B4");
+    pr.setNomEclipse("TestsConfiguration");
+    listeProjetsIgnores.add(pr);
+
+    List<Projet> listeProjets = new ArrayList<Projet>();
+    // Attention l'ordre est important
+    pr = new Projet("Tesdgdfn", "B4");
+    pr.setNomEclipse("TestsCofgdfdn");
+    listeProjets.add(pr);
+    pr = new Projet("TestsConfiguration", "B4");
+    pr.setNomEclipse("TestsConfiguration");
+    listeProjets.add(pr);
+
+    System.out.println(getBuildSequence(listeProjets, listeProjetsIgnores));
+  }
+
+  /**
+   * permet de gï¿½nï¿½rer la liste des appels aux diffï¿½rents build, dans l'ordre
+   * attendu
+   *
+   * @param listeProjets
+   *
+   * @return sequenceBuild
+   */
+  private static String getBuildSequence(List<Projet> listeProjets, List<Projet> listeProjetsIgnores)
+  {
+    String sequenceBuild = "";
+    Projet projet        = null;
+
+    String num = null;
+
+    for (int i = 0; i < listeProjets.size(); i++)
+    {
+      projet = listeProjets.get(i);
+      if (listeProjetsIgnores != null && ZHello.containsNomProjet(projet.getNomEclipse(), listeProjetsIgnores))
+      {
+        return sequenceBuild;
+      }
+      else
+      {
+        if ((i + 1) < 10)
+        {
+          num = "0" + Integer.toString(i + 1);
+        }
+        else
+        {
+          num = Integer.toString(i + 1);
+        }
+        sequenceBuild += ConstantesGeneration.antFilePrefix + num + "." + projet.getNomEclipse()
+                             + ConstantesGeneration.buildFileSuffix + ConstantesGeneration.antFileSuffix;
+      }
     }
 
-	@Ignore
-	public void testMachin()
-	{
-		Assert.assertTrue(Boolean.TRUE);
-	}
+    return sequenceBuild;
+  }
 
-	@Ignore("HEEYY")
-	public void testTruc()
-	{
-		Assert.assertTrue(Boolean.TRUE);
-	}
+  private static boolean containsNomProjet(String nomProjet, List<Projet> listeRecherche)
+  {
+    if (nomProjet == null)
+    {
+      return false;
+    }
 
-	// public static void main(String[] args)
-	// {
-	// convertirLong();
-	// }
-	//
-	// private static void convertirLong()
-	// {
-	// long machin = Long.parseLong("220492800000");
-	//
-	// System.out.println(new Date(machin));
-	// }
+    Iterator<Projet> it = listeRecherche.iterator();
 
-	@Test
-	public void test1()
-	{
-		// Projets à ignorer du build général Tiga automatisé, ils seront lancés
-		// après coup une fois la serie automatique terminée
-		List<Projet> listeProjetsIgnores = new ArrayList<Projet>();
-		// Attention l'ordre est important
-		Projet pr = new Projet("BatchPurge", "B7");
-		pr.setNomEclipse("BatchPurge");
-		listeProjetsIgnores.add(pr);
-
-		pr = new Projet("BatchHistorisation", "B7");
-		pr.setNomEclipse("BatchHistorisation");
-		listeProjetsIgnores.add(pr);
-
-		pr = new Projet("BatchAdministration", "B2");
-		pr.setNomEclipse("BatchAdministration");
-		listeProjetsIgnores.add(pr);
-
-		pr = new Projet("BatchAdministrationIHM", "B4");
-		pr.setNomEclipse("BatchAdministrationIHM");
-		listeProjetsIgnores.add(pr);
-
-		pr = new Projet("TestsConfiguration", "B4");
-		pr.setNomEclipse("TestsConfiguration");
-		listeProjetsIgnores.add(pr);
-
-		List<Projet> listeProjets = new ArrayList<Projet>();
-		// Attention l'ordre est important
-		pr = new Projet("Tesdgdfn", "B4");
-		pr.setNomEclipse("TestsCofgdfdn");
-		listeProjets.add(pr);
-		pr = new Projet("TestsConfiguration", "B4");
-		pr.setNomEclipse("TestsConfiguration");
-		listeProjets.add(pr);
-
-		System.out.println(getBuildSequence(listeProjets, listeProjetsIgnores));
-	}
-
-	/**
-	 * permet de générer la liste des appels aux différents build, dans l'ordre
-	 * attendu
-	 *
-	 * @param listeProjets
-	 * @return sequenceBuild
-	 */
-	private static String getBuildSequence(List<Projet> listeProjets, List<Projet> listeProjetsIgnores)
-	{
-		String sequenceBuild = "";
-		Projet projet = null;
-
-		String num = null;
-
-		for (int i = 0; i < listeProjets.size(); i++)
-		{
-			projet = listeProjets.get(i);
-			if (listeProjetsIgnores != null && ZHello.containsNomProjet(projet.getNomEclipse(), listeProjetsIgnores))
-			{
-				return sequenceBuild;
-			}else{
-			if ((i + 1) < 10)
-			{
-				num = "0" + Integer.toString(i + 1);
-			}
-			else
-			{
-				num = Integer.toString(i + 1);
-			}
-			sequenceBuild += ConstantesGeneration.antFilePrefix + num + "." + projet.getNomEclipse() + ConstantesGeneration.buildFileSuffix
-					+ ConstantesGeneration.antFileSuffix;
-		}}
-
-		return sequenceBuild;
-	}
-
-	private static boolean containsNomProjet(String nomProjet, List<Projet> listeRecherche)
-	{
-		if (nomProjet == null)
-		{
-			return false;
-		}
-
-		Iterator<Projet> it = listeRecherche.iterator();
-
-		while (it.hasNext())
-		{
-			String nomRech = it.next().getNomEclipse();
-			if (nomProjet.equals(nomRech))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
+    while (it.hasNext())
+    {
+      String nomRech = it.next().getNomEclipse();
+      if (nomProjet.equals(nomRech))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
 
 	/*
-	 * public static void main(String[] args) { AbstractEtapeDAO abs = new
+   * public static void main(String[] args) { AbstractEtapeDAO abs = new
 	 * EtapeDAOOracle(null); System.out.println(abs._requeteHistoriserTable());
 	 * }
 	 */

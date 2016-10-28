@@ -15,30 +15,29 @@ import org.junit.Test;
 
 public class BouncyCastle
 {
-   @Test
-   public void test() throws Exception
-   {
-      Security.addProvider(new BouncyCastleProvider());
-      FileReader fileReader = new FileReader(BouncyCastle.class.getClassLoader()
-            .getResource("crypto/csr.csr").getPath());
+  @Test
+  public void test() throws Exception
+  {
+    Security.addProvider(new BouncyCastleProvider());
+    FileReader fileReader = new FileReader(BouncyCastle.class.getClassLoader().getResource("crypto/csr.csr").getPath());
 
-      PEMReader reader = new PEMReader(fileReader);
-      Object pemObject;
-      try
-      {
-         pemObject = reader.readObject();
-         reader.close();
-      }
-      catch (IOException e)
-      {
-         throw new Exception("Could not read CSR from string: " + e.getMessage(), e);
-      }
+    PEMReader reader = new PEMReader(fileReader);
+    Object    pemObject;
+    try
+    {
+      pemObject = reader.readObject();
+      reader.close();
+    }
+    catch (IOException e)
+    {
+      throw new Exception("Could not read CSR from string: " + e.getMessage(), e);
+    }
 
-      if (pemObject instanceof PKCS10CertificationRequest)
-      {
-         PKCS10CertificationRequest certificationRequest = (PKCS10CertificationRequest) pemObject;
-         System.out.println(certificationRequest);
+    if (pemObject instanceof PKCS10CertificationRequest)
+    {
+      PKCS10CertificationRequest certificationRequest = (PKCS10CertificationRequest) pemObject;
+      System.out.println(certificationRequest);
 
-      }
-   }
+    }
+  }
 }

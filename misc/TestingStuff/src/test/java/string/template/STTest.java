@@ -23,42 +23,45 @@ import org.stringtemplate.v4.ST;
 /**
  * @author martinelli-b
  */
-public class STTest {
+public class STTest
+{
 
-   @Test
-   public void testSTAndMail() {
-      ST hello = new ST("Hello, <name> \n <a href=\"www.google.fr\">google</a>");
-      hello.add("name", "World");
-      System.out.println(hello.render());
+  @Test
+  public void testSTAndMail()
+  {
+    ST hello = new ST("Hello, <name> \n <a href=\"www.google.fr\">google</a>");
+    hello.add("name", "World");
+    System.out.println(hello.render());
 
-      Properties props = new Properties();
-      props.setProperty("mail.smtp.host", "smtp.free.fr");
-      Session session = Session.getDefaultInstance(props, null);
+    Properties props = new Properties();
+    props.setProperty("mail.smtp.host", "smtp.free.fr");
+    Session session = Session.getDefaultInstance(props, null);
 
-      try {
-         Message msg = new MimeMessage(session);
-         msg.setFrom(new InternetAddress("bnj@javaCaiCool.com", "Bnj"));
-         msg.addRecipient(Message.RecipientType.TO,
-                          new InternetAddress("martinelli.benjamin@gmail.com", "Destinataire"));
-         msg.setSubject("Envoi AR2");
+    try
+    {
+      Message msg = new MimeMessage(session);
+      msg.setFrom(new InternetAddress("bnj@javaCaiCool.com", "Bnj"));
+      msg.addRecipient(Message.RecipientType.TO, new InternetAddress("martinelli.benjamin@gmail.com", "Destinataire"));
+      msg.setSubject("Envoi AR2");
 
-         String htmlBody = hello.render();
-         byte[] attachmentData = Files.readAllBytes(Paths.get(
-               "C:\\home\\src\\sandbox\\misc\\TestingStuff\\src\\test\\resources\\atos_logotype.gif"));
-         Multipart mp = new MimeMultipart();
+      String htmlBody = hello.render();
+      byte[] attachmentData = Files.readAllBytes(
+          Paths.get("C:\\home\\src\\sandbox\\misc\\TestingStuff\\src\\test\\resources\\atos_logotype.gif"));
+      Multipart mp = new MimeMultipart();
 
-         MimeBodyPart htmlPart = new MimeBodyPart();
-         htmlPart.setContent(htmlBody, "text/html");
-         mp.addBodyPart(htmlPart);
+      MimeBodyPart htmlPart = new MimeBodyPart();
+      htmlPart.setContent(htmlBody, "text/html");
+      mp.addBodyPart(htmlPart);
 
-         MimeBodyPart attachment = new MimeBodyPart();
-         InputStream attachmentDataStream = new ByteArrayInputStream(attachmentData);
-         attachment.setFileName("logo.gif");
-         attachment.setContent(attachmentDataStream, "image/gif");
-         mp.addBodyPart(attachment);
-         Transport.send(msg);
-      }
-      catch (MessagingException | IOException e) {
-      }
-   }
+      MimeBodyPart attachment           = new MimeBodyPart();
+      InputStream  attachmentDataStream = new ByteArrayInputStream(attachmentData);
+      attachment.setFileName("logo.gif");
+      attachment.setContent(attachmentDataStream, "image/gif");
+      mp.addBodyPart(attachment);
+      Transport.send(msg);
+    }
+    catch (MessagingException | IOException e)
+    {
+    }
+  }
 }

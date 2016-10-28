@@ -1,4 +1,0 @@
-avant
-
-[INFO] --- maven-surefire-plugin:2.14.1:test (default-test) @ framework ---
-[INFO] Surefire report directory: /root/.jenkins/jobs/mespartner-framework-snapshot/workspace/target/surefire-reports

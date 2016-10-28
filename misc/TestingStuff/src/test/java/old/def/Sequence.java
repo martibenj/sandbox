@@ -14,15 +14,15 @@ public enum Sequence
   private final String versionModel;
 
   /** La version implémentée. */
-  private String       versionImplem;
+  private String versionImplem;
 
   /**
    * Constructeur de l'énumeration de l'exigence.
-   * 
+   *
    * @param name
-   *          le nom.
+   *     le nom.
    * @param versionModel
-   *          La version de l'exigence dans la modélisation.
+   *     La version de l'exigence dans la modélisation.
    */
   private Sequence(final String name, final String versionModel)
   {

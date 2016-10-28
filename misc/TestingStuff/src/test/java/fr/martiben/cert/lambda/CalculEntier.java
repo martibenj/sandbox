@@ -1,8 +1,9 @@
 package fr.martiben.cert.lambda;
 
 @FunctionalInterface
-interface CalculEntier {
-	int operation(int a, int b);
+interface CalculEntier
+{
+  int operation(int a, int b);
 
-	boolean equals(Object obj);
+  boolean equals(Object obj);
 }

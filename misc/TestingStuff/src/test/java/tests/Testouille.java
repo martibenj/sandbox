@@ -1,9 +1,29 @@
 package tests;
 
+import fr.martiben.cert.othPack.Enfant;
+import fr.martiben.cert.othPack.Parent;
+import old.def.FormEntity;
+import old.def.from;
+import org.apache.commons.codec.DecoderException;
+import org.apache.commons.codec.binary.Hex;
+import org.apache.commons.exec.CommandLine;
+import org.apache.commons.exec.DefaultExecutor;
+import org.apache.commons.exec.PumpStreamHandler;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.text.WordUtils;
+import org.apache.commons.vfs2.FileChangeEvent;
+import org.apache.commons.vfs2.FileListener;
+import org.apache.commons.vfs2.impl.DefaultFileMonitor;
+import org.joda.time.DateTime;
+import org.joda.time.Duration;
+import org.junit.Assert;
+import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
 import java.net.Proxy;
@@ -25,27 +45,9 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import old.def.FormEntity;
-import old.def.from;
-
-import org.apache.commons.codec.DecoderException;
-import org.apache.commons.codec.binary.Hex;
-import org.apache.commons.exec.CommandLine;
-import org.apache.commons.exec.DefaultExecutor;
-import org.apache.commons.exec.PumpStreamHandler;
-import org.apache.commons.vfs2.FileChangeEvent;
-import org.apache.commons.vfs2.FileListener;
-import org.apache.commons.vfs2.impl.DefaultFileMonitor;
-import org.joda.time.DateTime;
-import org.joda.time.Duration;
-import org.junit.Assert;
-import org.junit.Test;
-
-import fr.martiben.cert.othPack.Enfant;
-import fr.martiben.cert.othPack.Parent;
-
 public class Testouille
 {
+  float f;
 
   @Test
   public void stub() throws IOException
@@ -68,17 +70,113 @@ public class Testouille
   }
 
   @Test
+  public void d() throws IOException
+  {
+  }
+
+  @Test
+  public void e() throws IOException
+  {
+  }
+
+  @Test
+  public void f() throws IOException
+  {
+    String blah1 = " MSS CAESAR ";
+    System.out.println(WordUtils.capitalizeFully(blah1.trim(), new char[] { ' ' }).replaceAll(" ", ""));
+    String blah2 = "SSPP";
+    System.out.println(WordUtils.capitalizeFully(blah2.trim(), new char[] { ' ' }).replaceAll(" ", ""));
+
+    BigDecimal prix = BigDecimal.valueOf(5000);
+    BigDecimal bd   = BigDecimal.valueOf(5).multiply(prix);
+  }
+
+  @Test
+  public void operatorsCallOrder() throws IOException
+  {
+    boolean a = false;
+    boolean b = true;
+    System.out.println(a || b);
+    System.out.println(a | b);
+    System.out.println(a || trucBoolean());
+    System.out.println(a | trucBoolean());
+  }
+
+  public boolean trucBoolean()
+  {
+    System.out.println("hey");
+    return true;
+  }
+
+  @Test
+  public void bytes() throws IOException
+  {
+    String s = null;
+    int    i = 5;
+    byte   d = 55;
+    byte   t = (byte) (d + d);
+    System.out.println(f);
+    List l = new ArrayList();
+  }
+
+  @Test
+  public void fb() throws IOException
+  {
+    Assert.assertEquals("Fizz", fb(3));
+    Assert.assertEquals("Buzz", fb(5));
+    Assert.assertEquals("FizzBuzz", fb(15));
+    Assert.assertEquals("2", fb(2));
+    System.out.println(fb(3));
+    System.out.println(fb(5));
+    System.out.println(fb(15));
+    System.out.println(fb(2));
+  }
+
+  public String fb(int pInteger)
+  {
+    String retour = "";
+    if (pInteger % 3 == 0 && pInteger % 5 == 0)
+    {
+      retour = "FizzBuzz";
+    }
+    else
+    {
+      if (pInteger % 3 == 0)
+      {
+        retour = "Fizz";
+      }
+      else if (pInteger % 5 == 0)
+      {
+        retour = "Buzz";
+      }
+      else
+      {
+        retour = "" + pInteger;
+      }
+    }
+    return retour;
+  }
+
+  @Test
+  public void split() throws IOException
+  {
+    String   invalide = "undeuxtrois";
+    String[] tab      = invalide.split("_");
+    System.out.println(tab[1]);
+  }
+
+  @Test
   public void defaultMonitor() throws IOException
   {
     new DefaultFileMonitor(new FileListener()
     {
       @Override
-      public void fileDeleted(FileChangeEvent arg0) throws Exception
+      public void fileCreated(FileChangeEvent arg0) throws Exception
       {
       }
 
       @Override
-      public void fileCreated(FileChangeEvent arg0) throws Exception
+      public void fileDeleted(FileChangeEvent arg0) throws Exception
       {
       }
 
@@ -95,6 +193,7 @@ public class Testouille
   {
     System.out.println(new Date("10/06/14"));
     System.out.println("Coup de bol");
+    System.out.println(StringUtils.leftPad("", 3, '1'));
   }
 
   @Test
@@ -123,19 +222,19 @@ public class Testouille
   @Test
   public void duration() throws IOException
   {
-    DateTime j = new DateTime().withTimeAtStartOfDay();
+    DateTime j        = new DateTime().withTimeAtStartOfDay();
     DateTime jPlusOne = new DateTime().withTimeAtStartOfDay().plusDays(1);
     Duration duration = new Duration(j, jPlusOne);
     System.out.println(duration.getMillis());
     // 1jr = 86400000
 
-    DateTime anniv = new DateTime().withDate(2015, 9, 12).withTimeAtStartOfDay();
+    DateTime anniv      = new DateTime().withDate(2015, 9, 12).withTimeAtStartOfDay();
     DateTime debutAnnee = new DateTime().withDate(2016, 1, 1).withTimeAtStartOfDay();
     System.out.println("anniv:" + anniv.getMillis());
     System.out.println("debut:" + debutAnnee.getMillis());
 
-    DateTime ref = new DateTime().withTimeAtStartOfDay();
-    DateTime moins5 = ref.minusDays(5);
+    DateTime ref     = new DateTime().withTimeAtStartOfDay();
+    DateTime moins5  = ref.minusDays(5);
     Duration cinqJrs = new Duration(moins5, ref);
     System.out.println("5 jours :" + cinqJrs.getMillis());
   }
@@ -160,8 +259,8 @@ public class Testouille
   {
     String[] fichiersTrouves = { "truc", "truc1", "truc2" };
 
-    StringBuilder sb = new StringBuilder();
-    String lineSeparator = System.getProperty("line.separator");
+    StringBuilder sb            = new StringBuilder();
+    String        lineSeparator = System.getProperty("line.separator");
     sb.append("There is more than one working file matching the searched name file pattern");
     for (String fichiersTrouve : fichiersTrouves)
     {
@@ -260,8 +359,8 @@ public class Testouille
   private String leftpad(String str, int len)
   {
     String strLoc = str;
-    String ch = " ";
-    int i = -1;
+    String ch     = " ";
+    int    i      = -1;
     len = len - strLoc.length();
 
     while (++i < len)
@@ -288,18 +387,18 @@ public class Testouille
   @Test
   public void proxyTimeout() throws MalformedURLException, IOException
   {
-    Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("http://dfgd.bull.fr", 80));
-    URLConnection urlC = new URL("https://api.dailymotion.com/playlist/x41df1/videos").openConnection(proxy);
+    Proxy         proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("http://dfgd.bull.fr", 80));
+    URLConnection urlC  = new URL("https://api.dailymotion.com/playlist/x41df1/videos").openConnection(proxy);
     urlC.getInputStream();
   }
 
   @Test
   public void matcher()
   {
-    String toMatch = "http://www.dailymotion.com/video/x2b79bk_saison-1-episode-67-le-lundi-matin_tv";
-    String PATTERN_URL = "saison-[0-9]*-episode-[0-9]*";
-    Pattern PATTERN = Pattern.compile(PATTERN_URL);
-    Matcher matcher = PATTERN.matcher(toMatch);
+    String  toMatch     = "http://www.dailymotion.com/video/x2b79bk_saison-1-episode-67-le-lundi-matin_tv";
+    String  PATTERN_URL = "saison-[0-9]*-episode-[0-9]*";
+    Pattern PATTERN     = Pattern.compile(PATTERN_URL);
+    Matcher matcher     = PATTERN.matcher(toMatch);
     matcher.find();
     System.out.println(toMatch.substring(matcher.start(), matcher.end()));
   }
@@ -324,10 +423,10 @@ public class Testouille
   public void genJenkins()
   {
     String service = "## Start PIC%NB%\n" + "<Location /jenkins%NB%>\n"
-        + "\tProxyPass http://pic%NB%.novaforge.bull.com:8765/jenkins%NB%\n"
-        + "\tProxyPassReverse http://pic%NB%.novaforge.bull.com:8765/jenkins%NB%\n"
-        + "\tProxyPassReverse http://pic%NB%.novaforge.bull.com/jenkins%NB%\n" + "</Location>\n"
-        + "## End PIC%NB%";
+                         + "\tProxyPass http://pic%NB%.novaforge.bull.com:8765/jenkins%NB%\n"
+                         + "\tProxyPassReverse http://pic%NB%.novaforge.bull.com:8765/jenkins%NB%\n"
+                         + "\tProxyPassReverse http://pic%NB%.novaforge.bull.com/jenkins%NB%\n" + "</Location>\n"
+                         + "## End PIC%NB%";
     for (int i = 1; i < 38; i++)
     {
       System.out.println(service.replace("%NB%", "" + i));
@@ -345,9 +444,9 @@ public class Testouille
   public void beaverAddLine()
   {
     // SIMULATED !
-    final Scanner scanner = new Scanner(
-        "/dev/mapper/centos-swap swap                    swap    defaults        0 0\n"
-            + "/dev/sdb1 /datas ext4 defaults 0 0\n" + "/dev/sda3 /livraison ext3 defaults 0 0\n\n");
+    final Scanner scanner = new Scanner("/dev/mapper/centos-swap swap                    swap    defaults        0 0\n"
+                                            + "/dev/sdb1 /datas ext4 defaults 0 0\n"
+                                            + "/dev/sda3 /livraison ext3 defaults 0 0\n\n");
     while (scanner.hasNext())
     {
       final String currentLine = scanner.nextLine();
@@ -375,7 +474,7 @@ public class Testouille
     final DefaultExecutor executor = new DefaultExecutor();
     executor.setExitValue(0);
     final ByteArrayOutputStream stdout = new ByteArrayOutputStream();
-    final PumpStreamHandler psh = new PumpStreamHandler(stdout);
+    final PumpStreamHandler     psh    = new PumpStreamHandler(stdout);
     executor.setStreamHandler(psh);
     String cmdLong = "su - safran --shell /bin/bash --command \"ulimit -n\"";
     // String cmd = "su";
@@ -419,7 +518,7 @@ public class Testouille
   public void timestampConverter()
   {
     long timestamp = 1412777998000L;
-    Date d = new Date();
+    Date d         = new Date();
     d.setTime(timestamp);
     System.out.println(d);
   }
@@ -596,13 +695,13 @@ public class Testouille
   public void ldate()
   {
     // long lon = new Date().getTime() + 10 * 1000;
-    long lon = 134442899649210000L;
-    Date d = new Date(lon);
-    Calendar c = new GregorianCalendar(Locale.FRANCE);
+    long     lon = 134442899649210000L;
+    Date     d   = new Date(lon);
+    Calendar c   = new GregorianCalendar(Locale.FRANCE);
     c.setTimeInMillis(lon);
 
     Long valeurLong = Long.valueOf(lon);
-    Date dd = null;
+    Date dd         = null;
     dd = new Date(valeurLong.longValue());
 
     System.out.println("calendar=" + c);
@@ -613,7 +712,8 @@ public class Testouille
   @Test
   public void substring()
   {
-    String lalireLong = "laliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiirrrrrrrrrrrrrrrrrrrreeeeeeeeeeeeee";
+    String lalireLong =
+        "laliiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiirrrrrrrrrrrrrrrrrrrreeeeeeeeeeeeee";
     String coupeSub = lalireLong.substring(0, 5);
 
     // coupeSub = new String(coupeSub.toCharArray(),10,3);
@@ -632,15 +732,15 @@ public class Testouille
   @Test
   public void index()
   {
-    String h = "hello";
-    int index = h.indexOf("h");
+    String h     = "hello";
+    int    index = h.indexOf("h");
     System.out.println(index);
   }
 
   @Test
   public void indexLast()
   {
-    String h = "hello";
+    String h     = "hello";
     String chara = "" + h.charAt(h.length() - 1);
     System.out.println(chara);
   }
