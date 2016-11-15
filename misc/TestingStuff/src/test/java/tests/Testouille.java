@@ -31,6 +31,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.text.MessageFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -75,12 +76,13 @@ public class Testouille
   }
 
   @Test
-  public void e() throws IOException
+  public void MessageFormat() throws IOException
   {
+    System.out.println(MessageFormat.format("my {0}string {1}", "hey0", "hey1"));
   }
 
   @Test
-  public void f() throws IOException
+  public void ConvertUnderscore() throws IOException
   {
     String blah1 = " MSS CAESAR ";
     System.out.println(WordUtils.capitalizeFully(blah1.trim(), new char[] { ' ' }).replaceAll(" ", ""));
