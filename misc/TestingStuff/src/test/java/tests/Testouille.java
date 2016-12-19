@@ -71,8 +71,12 @@ public class Testouille
   }
 
   @Test
-  public void d() throws IOException
+  public void d() throws Exception
   {
+    List<Long> pFtsIds = new ArrayList<>();
+    pFtsIds.add(5L);
+    pFtsIds.add(6L);
+    System.out.println(pFtsIds);
   }
 
   @Test
