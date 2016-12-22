@@ -1,0 +1,1727 @@
+[
+  {
+    "id": 171925,
+    "contract": {
+      "id": 1,
+      "contractName": "MSS CAESAR",
+      "contractBaanName": "CAF",
+      "listeReparable": null,
+      "causeNeutralisations": [
+        {
+          "id": 132,
+          "nom": "Utilisation anormale",
+          "libelle": "Utilisation anormale",
+          "isDisplayable": true
+        },
+        {
+          "id": 127,
+          "nom": "Attente notif TC",
+          "libelle": "Attente notif TC",
+          "isDisplayable": true
+        },
+        {
+          "id": 130,
+          "nom": "Pot. annuel atteint",
+          "libelle": "Potentiel annuel atteint",
+          "isDisplayable": true
+        },
+        {
+          "id": 131,
+          "nom": "Solde contractuel",
+          "libelle": "Solde contractuel",
+          "isDisplayable": true
+        },
+        {
+          "id": 126,
+          "nom": "Attente info client",
+          "libelle": "Attente info client",
+          "isDisplayable": true
+        },
+        {
+          "id": 129,
+          "nom": "Fermeture site",
+          "libelle": "Fermeture site",
+          "isDisplayable": true
+        },
+        {
+          "id": 128,
+          "nom": "Attente rÃ©p. SIMMT",
+          "libelle": "Attente rÃ©ponse SIMMT",
+          "isDisplayable": true
+        }
+      ],
+      "causeReponseFTs": [
+        {
+          "id": 18,
+          "nom": "Event A Eclaircir",
+          "libelle": null,
+          "isReponseOK": false,
+          "isDisplayable": false
+        },
+        {
+          "id": 20,
+          "nom": "Neutralisation contractuelle",
+          "libelle": null,
+          "isReponseOK": false,
+          "isDisplayable": false
+        },
+        {
+          "id": 24,
+          "nom": "Mauvaise utilisation",
+          "libelle": "Mauvaise utilisation client",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 22,
+          "nom": "Event incomplet",
+          "libelle": "Descriptif EvÃ©nement incomplet",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 23,
+          "nom": "Event incoh. PiÃ¨ces",
+          "libelle": "IncohÃ©rence entre description Event et piÃ¨ces",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 25,
+          "nom": "Hors Contrat",
+          "libelle": "PiÃ¨ces hors pÃ©rimÃ¨tre Contrat",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 44,
+          "nom": " ",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 17,
+          "nom": "VÃ©hicule NeutralisÃ©",
+          "libelle": null,
+          "isReponseOK": false,
+          "isDisplayable": false
+        },
+        {
+          "id": 21,
+          "nom": "Casse lourde",
+          "libelle": "Casse lourde",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 45,
+          "nom": "DÃ©faillance",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 16,
+          "nom": "Potentiels Manquants",
+          "libelle": "Potentiels Manquants",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 19,
+          "nom": "Cause non RenseignÃ©e",
+          "libelle": null,
+          "isReponseOK": false,
+          "isDisplayable": false
+        }
+      ],
+      "causeReponseLFTs": [
+        {
+          "id": 71,
+          "nom": "Intervention AC",
+          "libelle": "Intervention Assistance Client",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 66,
+          "nom": "R:Montant casse atteint",
+          "libelle": "Montant casse atteint",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 59,
+          "nom": "Cannibalisation",
+          "libelle": "Cannibalisation",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 62,
+          "nom": "R:Event Incomplet",
+          "libelle": "Descriptif EvÃ©nement incomplet",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 73,
+          "nom": "R:Potentiels Manquants",
+          "libelle": "Potentiels Manquants",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 57,
+          "nom": "Livraison sous 3 Jours",
+          "libelle": "Livraison sous 3 Jours",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 69,
+          "nom": "Livraison sous 6 mois",
+          "libelle": "Livraison sous 6 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 70,
+          "nom": "PrÃ©lÃ¨vement SIA/EAU",
+          "libelle": "PrÃ©lÃ¨vement SIA/EAU",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 75,
+          "nom": "R:Correction demande client",
+          "libelle": "Correction demande client",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 63,
+          "nom": "R:Mauvaise utilisation",
+          "libelle": "Mauvaise utilisation client",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 65,
+          "nom": "R:Non Livrable CI",
+          "libelle": "Article dÃ©clarÃ© non dÃ©livrable au CI",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 72,
+          "nom": "Livraison sous 7 jours",
+          "libelle": "Livraison sous 7 jours",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 74,
+          "nom": "R:Attente visite permanent NS",
+          "libelle": "Attente de la visite d'un permanent NS",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 61,
+          "nom": "R:Doublon ligne",
+          "libelle": "Doublon ligne",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 67,
+          "nom": "Livraison sous 1 mois",
+          "libelle": "Livraison sous 1 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 64,
+          "nom": "R:Hors Contrat",
+          "libelle": "PiÃ¨ces hors pÃ©rimÃ¨tre Contrat",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 76,
+          "nom": "Livraison sous Bon de Commande",
+          "libelle": "Livraison sous Bon de Commande",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 58,
+          "nom": "Livraison DiffÃ©rÃ©e",
+          "libelle": "Livraison DiffÃ©rÃ©e",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 60,
+          "nom": "Attente Expertise",
+          "libelle": "Attente Expertise",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 68,
+          "nom": "Livraison sous 3 mois",
+          "libelle": "Livraison sous 3 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        }
+      ],
+      "erreurLFTs": [
+        {
+          "id": 127322,
+          "code": "code3",
+          "libelle": "libelle3"
+        },
+        {
+          "id": 127320,
+          "code": "code1",
+          "libelle": "libelle1"
+        },
+        {
+          "id": 127321,
+          "code": "code2",
+          "libelle": "libelle2"
+        }
+      ],
+      "origines": []
+    },
+    "causeReponseFt": {
+      "id": 44,
+      "nom": " ",
+      "libelle": null,
+      "isReponseOK": true,
+      "isDisplayable": false
+    },
+    "numeroFtInterne": "2016ABC000009",
+    "sequenceInterne": 0,
+    "dateCreation": 1477432800000,
+    "dateAr1": null,
+    "parc": "PSP",
+    "site": "CANJUERS",
+    "tranche": "CAESAR France",
+    "pilotePLCS": false,
+    "emailEmetteur": "nexter@nexter.net",
+    "commentaireExterneReponse": null,
+    "opex": false,
+    "demandeComplement": null,
+    "isIndispo": true,
+    "isCasseSequoia": false,
+    "vehicule": {
+      "id": 171924,
+      "nom": "CAESAR 125",
+      "immatriculation": "60930011",
+      "regiment": {
+        "id": 171923,
+        "nom": "35RAP"
+      }
+    },
+    "LFTs": [
+      {
+        "id": 171927,
+        "ft": 171925,
+        "indexOasis": 1,
+        "userLock": "ADN",
+        "numeroLFTInterne": "2016ABC000009_01",
+        "cfDde": "F0531",
+        "rfDde": "10598074",
+        "nnoDde": {
+          "id": 4242,
+          "nno": "5360145508351",
+          "noi": "145508351"
+        },
+        "idg": {
+          "id": 154,
+          "nom": "10560914000",
+          "typeProduit": "AD",
+          "invalidite": "EMPTY",
+          "idgDerives": [
+            {
+              "id": 155,
+              "contract": 1,
+              "idgPrefixe": null,
+              "idgSuffixe": "10560914000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155815,
+                    "contractId": 1,
+                    "idgDeriveId": 155,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155815,
+                    "nom": "S1SIA3"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 5
+                }
+              ]
+            },
+            {
+              "id": 127819,
+              "contract": 1,
+              "idgPrefixe": "U0211CAES",
+              "idgSuffixe": "10560914000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 127819,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 22
+                }
+              ]
+            },
+            {
+              "id": 127820,
+              "contract": 1,
+              "idgPrefixe": "U0213AIPC",
+              "idgSuffixe": "10560914000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 127820,
+                    "typeEmplacement": "CONTROLE"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "CONTROLE",
+                  "valeurStockBaan": 7
+                },
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 127820,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 9
+                }
+              ]
+            }
+          ]
+        },
+        "causeReponseLFT": {
+          "id": 57,
+          "nom": "Livraison sous 3 Jours",
+          "libelle": "Livraison sous 3 Jours",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        "erreurLFT": {
+          "id": 127321,
+          "code": "code2",
+          "libelle": "libelle2"
+        },
+        "designationDde": "RESSORT",
+        "quantiteDde": 1,
+        "quantitePreconisee": 2,
+        "classe": null,
+        "reparable": null,
+        "dateAr2": null,
+        "isCasseNTA": false,
+        "isCompatibiliteTranche": true,
+        "isFlagIndispo": false,
+        "isFlagExpedie": null,
+        "reponseLFTAssociee": {
+          "id": 171928,
+          "nno": {
+            "id": 156,
+            "nno": "1015145542341",
+            "noi": "145542341"
+          },
+          "iDGDerive": {
+            "id": 127819,
+            "contract": 1,
+            "idgPrefixe": "U0211CAES",
+            "idgSuffixe": "10560914000",
+            "ligneOrdrePrevisionnelles": [],
+            "magasinStocks": [
+              {
+                "id": {
+                  "magasinId": 155237,
+                  "contractId": 1,
+                  "idgDeriveId": 127819,
+                  "typeEmplacement": "AUTRES"
+                },
+                "contract": 1,
+                "magasin": {
+                  "id": 155237,
+                  "nom": "S1SIA1"
+                },
+                "typeEmplacement": "AUTRES",
+                "valeurStockBaan": 22
+              }
+            ]
+          },
+          "article": {
+            "id": 153,
+            "cf": "F0531",
+            "rf": "10560914",
+            "designation": "ECOUVILLON DE GRAISSAGE",
+            "lienArticleNNOs": [
+              {
+                "articleNNOId": {
+                  "articleId": 153,
+                  "nnoId": 156
+                },
+                "dateInvalidation": null,
+                "nno": {
+                  "id": 156,
+                  "nno": "1015145542341",
+                  "noi": "145542341"
+                }
+              }
+            ],
+            "lienArticleIDGs": [
+              {
+                "articleIDGId": {
+                  "articleId": 153,
+                  "idgId": 154
+                },
+                "dateInvalidation": null,
+                "idg": {
+                  "id": 154,
+                  "nom": "10560914000",
+                  "typeProduit": "AD",
+                  "invalidite": "EMPTY",
+                  "idgDerives": [
+                    {
+                      "id": 155,
+                      "contract": 1,
+                      "idgPrefixe": null,
+                      "idgSuffixe": "10560914000",
+                      "ligneOrdrePrevisionnelles": [],
+                      "magasinStocks": [
+                        {
+                          "id": {
+                            "magasinId": 155815,
+                            "contractId": 1,
+                            "idgDeriveId": 155,
+                            "typeEmplacement": "AUTRES"
+                          },
+                          "contract": 1,
+                          "magasin": {
+                            "id": 155815,
+                            "nom": "S1SIA3"
+                          },
+                          "typeEmplacement": "AUTRES",
+                          "valeurStockBaan": 5
+                        }
+                      ]
+                    },
+                    {
+                      "id": 127819,
+                      "contract": 1,
+                      "idgPrefixe": "U0211CAES",
+                      "idgSuffixe": "10560914000",
+                      "ligneOrdrePrevisionnelles": [],
+                      "magasinStocks": [
+                        {
+                          "id": {
+                            "magasinId": 155237,
+                            "contractId": 1,
+                            "idgDeriveId": 127819,
+                            "typeEmplacement": "AUTRES"
+                          },
+                          "contract": 1,
+                          "magasin": {
+                            "id": 155237,
+                            "nom": "S1SIA1"
+                          },
+                          "typeEmplacement": "AUTRES",
+                          "valeurStockBaan": 22
+                        }
+                      ]
+                    },
+                    {
+                      "id": 127820,
+                      "contract": 1,
+                      "idgPrefixe": "U0213AIPC",
+                      "idgSuffixe": "10560914000",
+                      "ligneOrdrePrevisionnelles": [],
+                      "magasinStocks": [
+                        {
+                          "id": {
+                            "magasinId": 155237,
+                            "contractId": 1,
+                            "idgDeriveId": 127820,
+                            "typeEmplacement": "CONTROLE"
+                          },
+                          "contract": 1,
+                          "magasin": {
+                            "id": 155237,
+                            "nom": "S1SIA1"
+                          },
+                          "typeEmplacement": "CONTROLE",
+                          "valeurStockBaan": 7
+                        },
+                        {
+                          "id": {
+                            "magasinId": 155237,
+                            "contractId": 1,
+                            "idgDeriveId": 127820,
+                            "typeEmplacement": "AUTRES"
+                          },
+                          "contract": 1,
+                          "magasin": {
+                            "id": 155237,
+                            "nom": "S1SIA1"
+                          },
+                          "typeEmplacement": "AUTRES",
+                          "valeurStockBaan": 9
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "magasin": {
+            "id": 155237,
+            "nom": "S1SIA1"
+          },
+          "origine": null,
+          "quantite": 18,
+          "ov": "gfhftj",
+          "commentaireInterne": "rtttttt",
+          "commentaireExterne": "fghrh",
+          "ajoutLigne": false,
+          "isTraitee": false,
+          "isExpediee": false,
+          "atcEnvoye": null,
+          "lov": null,
+          "numBE": null,
+          "numCaisse": null,
+          "numLigneBE": null,
+          "numColisage": null,
+          "numTransporteur": null,
+          "dateBE": null,
+          "dateLivraison": null,
+          "commentaireExpedition": null,
+          "dateExpedition": null,
+          "isDTD": false,
+          "dateEnvoi": null
+        },
+        "LFTParente": null,
+        "adresseLivraison": null,
+        "statutSuiviExpeLFT": null
+      },
+      {
+        "id": 171929,
+        "ft": 171925,
+        "indexOasis": 2,
+        "userLock": null,
+        "numeroLFTInterne": "2016ABC000009_02",
+        "cfDde": "F0531",
+        "rfDde": "10598072",
+        "nnoDde": {
+          "id": 4238,
+          "nno": "5310145509011",
+          "noi": "145509011"
+        },
+        "idg": {
+          "id": 4236,
+          "nom": "10598072000",
+          "typeProduit": "AD",
+          "invalidite": "EMPTY",
+          "idgDerives": [
+            {
+              "id": 159086,
+              "contract": {
+                "id": 11,
+                "contractName": "SSPP",
+                "contractBaanName": "XLE",
+                "listeReparable": null,
+                "causeNeutralisations": [
+                  {
+                    "id": 120,
+                    "nom": "2-VÃ©hicule Fictif",
+                    "libelle": "Faux vÃ©hicule permettant d'aggrÃ©ger les appels de piÃ¨ces",
+                    "isDisplayable": true
+                  },
+                  {
+                    "id": 114,
+                    "nom": "1-AccidentÃ©",
+                    "libelle": "VÃ©hicule AccidentÃ©",
+                    "isDisplayable": true
+                  }
+                ],
+                "causeReponseFTs": [
+                  {
+                    "id": 40,
+                    "nom": "Event A Eclaircir",
+                    "libelle": null,
+                    "isReponseOK": false,
+                    "isDisplayable": false
+                  },
+                  {
+                    "id": 42,
+                    "nom": "Neutralisation contractuelle",
+                    "libelle": null,
+                    "isReponseOK": false,
+                    "isDisplayable": false
+                  },
+                  {
+                    "id": 38,
+                    "nom": "Potentiels Manquants",
+                    "libelle": "Potentiels Manquants",
+                    "isReponseOK": false,
+                    "isDisplayable": true
+                  },
+                  {
+                    "id": 41,
+                    "nom": "Cause non RenseignÃ©e",
+                    "libelle": null,
+                    "isReponseOK": false,
+                    "isDisplayable": false
+                  },
+                  {
+                    "id": 39,
+                    "nom": "VÃ©hicule NeutralisÃ©",
+                    "libelle": null,
+                    "isReponseOK": false,
+                    "isDisplayable": false
+                  },
+                  {
+                    "id": 43,
+                    "nom": "Annulation Client",
+                    "libelle": "Annulation Client",
+                    "isReponseOK": false,
+                    "isDisplayable": true
+                  },
+                  {
+                    "id": 56,
+                    "nom": " ",
+                    "libelle": null,
+                    "isReponseOK": true,
+                    "isDisplayable": false
+                  }
+                ],
+                "causeReponseLFTs": [
+                  {
+                    "id": 102,
+                    "nom": "R:Non JustifiÃ©",
+                    "libelle": "Appel non justifiÃ©",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 113,
+                    "nom": "R:Annulation Nexter",
+                    "libelle": "Annulation Nexter",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 110,
+                    "nom": "R:Non Livrable CI",
+                    "libelle": "Article dÃ©clarÃ© non dÃ©livrable au CI",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 99,
+                    "nom": "Livraison DiffÃ©rÃ©e",
+                    "libelle": "Livraison DiffÃ©rÃ©e",
+                    "isReponseOK": true,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 111,
+                    "nom": "R:Non ConfirmÃ©",
+                    "libelle": "Besoin non confirmÃ©",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 107,
+                    "nom": "R:Mauvaise utilisation",
+                    "libelle": "Mauvaise utilisation client",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 101,
+                    "nom": "R:Pbm Potentiel(s)",
+                    "libelle": "Absence/incohÃ©rence de potentiels",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 103,
+                    "nom": "R:Doublon ligne",
+                    "libelle": "Doublon ligne",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 109,
+                    "nom": "R:Hors Contrat",
+                    "libelle": "PiÃ¨ces hors pÃ©rimÃ¨tre Contrat",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 98,
+                    "nom": " ",
+                    "libelle": null,
+                    "isReponseOK": true,
+                    "isDisplayable": false,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 105,
+                    "nom": "R:Conf non Contrat",
+                    "libelle": "Configuration non Contrat compatible (OPEX)",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 112,
+                    "nom": "R:Annulation Client",
+                    "libelle": "Annulation Client",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 106,
+                    "nom": "R:Manquant Livraison",
+                    "libelle": "Manquant Ã  la livraison du vÃ©hicule",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 100,
+                    "nom": "Attente Expertise",
+                    "libelle": "Attente Expertise",
+                    "isReponseOK": true,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 108,
+                    "nom": "R:Perte Client",
+                    "libelle": "Perte Client",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  },
+                  {
+                    "id": 104,
+                    "nom": "R:Casse suite refus DE",
+                    "libelle": "Casse aprÃ¨s refus de DE corrective",
+                    "isReponseOK": false,
+                    "isDisplayable": true,
+                    "isInstantDelivery": false
+                  }
+                ],
+                "erreurLFTs": [
+                  {
+                    "id": 127324,
+                    "code": "code5",
+                    "libelle": "libelle5"
+                  }
+                ],
+                "origines": [
+                  {
+                    "id": 142,
+                    "nom": "Appro en urgence",
+                    "libelle": "Appro en urgence",
+                    "isDisplayable": true,
+                    "isMandatory": false
+                  },
+                  {
+                    "id": 141,
+                    "nom": " ",
+                    "libelle": null,
+                    "isDisplayable": false,
+                    "isMandatory": false
+                  },
+                  {
+                    "id": 144,
+                    "nom": "Livraison anticipÃ©e",
+                    "libelle": "Livraison anticipÃ©e",
+                    "isDisplayable": true,
+                    "isMandatory": false
+                  },
+                  {
+                    "id": 143,
+                    "nom": "Cannibalisation",
+                    "libelle": "Cannibalisation",
+                    "isDisplayable": true,
+                    "isMandatory": false
+                  }
+                ]
+              },
+              "idgPrefixe": null,
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 156008,
+                    "contractId": 11,
+                    "idgDeriveId": 159086,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 11,
+                  "magasin": {
+                    "id": 156008,
+                    "nom": "I11003"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 15
+                }
+              ]
+            },
+            {
+              "id": 127984,
+              "contract": 1,
+              "idgPrefixe": "U0213AIPC",
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 127984,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 1
+                }
+              ]
+            },
+            {
+              "id": 127983,
+              "contract": 1,
+              "idgPrefixe": "U0211CAES",
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 127983,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 2
+                },
+                {
+                  "id": {
+                    "magasinId": 155815,
+                    "contractId": 1,
+                    "idgDeriveId": 127983,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155815,
+                    "nom": "S1SIA3"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 1
+                }
+              ]
+            },
+            {
+              "id": 127981,
+              "contract": 1,
+              "idgPrefixe": "J0013",
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": []
+            },
+            {
+              "id": 127982,
+              "contract": 1,
+              "idgPrefixe": "K206372FR",
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": []
+            },
+            {
+              "id": 4237,
+              "contract": 1,
+              "idgPrefixe": null,
+              "idgSuffixe": "10598072000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 155237,
+                    "contractId": 1,
+                    "idgDeriveId": 4237,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 1,
+                  "magasin": {
+                    "id": 155237,
+                    "nom": "S1SIA1"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 1
+                }
+              ]
+            }
+          ]
+        },
+        "causeReponseLFT": null,
+        "erreurLFT": null,
+        "designationDde": "RONDELLE D'ARRET",
+        "quantiteDde": 1,
+        "quantitePreconisee": 2,
+        "classe": null,
+        "reparable": null,
+        "dateAr2": null,
+        "isCasseNTA": false,
+        "isCompatibiliteTranche": true,
+        "isFlagIndispo": false,
+        "isFlagExpedie": null,
+        "reponseLFTAssociee": {
+          "id": 171930,
+          "nno": null,
+          "iDGDerive": null,
+          "article": null,
+          "magasin": null,
+          "origine": null,
+          "quantite": null,
+          "ov": null,
+          "commentaireInterne": null,
+          "commentaireExterne": null,
+          "ajoutLigne": false,
+          "isTraitee": false,
+          "isExpediee": false,
+          "atcEnvoye": null,
+          "lov": null,
+          "numBE": null,
+          "numCaisse": null,
+          "numLigneBE": null,
+          "numColisage": null,
+          "numTransporteur": null,
+          "dateBE": null,
+          "dateLivraison": null,
+          "commentaireExpedition": null,
+          "dateExpedition": null,
+          "isDTD": false,
+          "dateEnvoi": null
+        },
+        "LFTParente": null,
+        "adresseLivraison": null,
+        "statutSuiviExpeLFT": null
+      }
+    ],
+    "neutralisations": []
+  },
+  {
+    "id": 171933,
+    "contract": {
+      "id": 6,
+      "contractName": "MSS VBCI",
+      "contractBaanName": "VBF",
+      "listeReparable": null,
+      "causeNeutralisations": [
+        {
+          "id": 117,
+          "nom": "13-Casse lourde",
+          "libelle": "Casse hors seuil forfaitaire prise en compte hors DC",
+          "isDisplayable": true
+        },
+        {
+          "id": 121,
+          "nom": "4-Pot. max atteints",
+          "libelle": "Potentiels parc hors limites contractuelles",
+          "isDisplayable": true
+        },
+        {
+          "id": 116,
+          "nom": "11-Engin utilisÃ©",
+          "libelle": "VÃ©hicule utilisÃ© aprÃ¨s l'appel non livrÃ©",
+          "isDisplayable": true
+        },
+        {
+          "id": 125,
+          "nom": "8-Parc OPEX > Seuil",
+          "libelle": "Parc OPEX supÃ©rieur Ã  un seuil contractuel",
+          "isDisplayable": true
+        },
+        {
+          "id": 115,
+          "nom": "1-Dde info client",
+          "libelle": "Demande d'information au client",
+          "isDisplayable": true
+        },
+        {
+          "id": 119,
+          "nom": "15-Annulation client",
+          "libelle": "FT annulÃ© par le client",
+          "isDisplayable": true
+        },
+        {
+          "id": 118,
+          "nom": "14-DÃ©lai MÃ d rÃ©p.",
+          "libelle": "Mise Ã  disposition hors dÃ©lai d'un exemplaire du rÃ©parable appelÃ©",
+          "isDisplayable": true
+        },
+        {
+          "id": 122,
+          "nom": "5-Perte client",
+          "libelle": "PiÃ¨ces perdues par le client et prise en compte hors DC par le forfait",
+          "isDisplayable": true
+        },
+        {
+          "id": 124,
+          "nom": "7-Rem. Ã©tat Serval",
+          "libelle": "Remise en Ã©tat Serval",
+          "isDisplayable": true
+        },
+        {
+          "id": 123,
+          "nom": "6-Hors contrat",
+          "libelle": "FT appelant des piÃ¨ces non couvertes par le forfait mais prises en compte hors DC",
+          "isDisplayable": true
+        }
+      ],
+      "causeReponseFTs": [
+        {
+          "id": 50,
+          "nom": "Recompt suite Cannib",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 54,
+          "nom": "Suite Pb diagnostic",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 48,
+          "nom": "Manquant Livraison",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 49,
+          "nom": "Fait de guerre",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 32,
+          "nom": "Perte Client",
+          "libelle": "Perte Client",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 35,
+          "nom": "Non Livrable CI",
+          "libelle": "Articles dÃ©clarÃ©s non livrables au CI",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 53,
+          "nom": "Casse / crevaison",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 28,
+          "nom": "Non justifiÃ©",
+          "libelle": "Appel non justifiÃ©",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 26,
+          "nom": "Event A Eclaircir",
+          "libelle": null,
+          "isReponseOK": false,
+          "isDisplayable": false
+        },
+        {
+          "id": 36,
+          "nom": "Annulation Client",
+          "libelle": "Annulation Client",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 55,
+          "nom": "Demande spÃ©cifique",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 33,
+          "nom": "Hors Contrat",
+          "libelle": "PiÃ¨ces hors pÃ©rimÃ¨tre Contrat",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 29,
+          "nom": "Casse lourde",
+          "libelle": "Casse lourde",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 31,
+          "nom": "Mauvaise utilisation",
+          "libelle": "Mauvaise utilisation client",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 52,
+          "nom": "DÃ©faillance / usure",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 47,
+          "nom": "Perte",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 34,
+          "nom": "Events fusionnÃ©s",
+          "libelle": "Plusieurs causes sur le mÃªme Event",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 27,
+          "nom": "Pbm Potentiel(s)",
+          "libelle": "Absence / IncohÃ©rence de potentiels",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 30,
+          "nom": "Event incoh. PiÃ¨ces",
+          "libelle": "IncohÃ©rence entre description Event et piÃ¨ces",
+          "isReponseOK": false,
+          "isDisplayable": true
+        },
+        {
+          "id": 46,
+          "nom": " ",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 51,
+          "nom": "Recompt Quincaill.",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false
+        },
+        {
+          "id": 37,
+          "nom": "Appel anticipÃ© KMP",
+          "libelle": "Appel de piÃ¨ces pour KMP avant la date de visite",
+          "isReponseOK": false,
+          "isDisplayable": true
+        }
+      ],
+      "causeReponseLFTs": [
+        {
+          "id": 95,
+          "nom": "Dde d'infos en cours",
+          "libelle": "Attente d'infos complÃ©mentaires",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 83,
+          "nom": "R:Casse lourde",
+          "libelle": "Casse lourde",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 85,
+          "nom": "R:Event Incoh. PiÃ¨ce",
+          "libelle": "IncohÃ©rence entre description Event et piÃ¨ces",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 90,
+          "nom": "R:Non Livrable CI",
+          "libelle": "Article dÃ©clarÃ© non dÃ©livrable au CI",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 81,
+          "nom": "R:Non JustifiÃ©",
+          "libelle": "Appel non justifiÃ©",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 79,
+          "nom": "Attente Expertise",
+          "libelle": "Attente Expertise",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 78,
+          "nom": "Livraison sous 3 Jours",
+          "libelle": "Livraison sous 3 Jours",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 97,
+          "nom": "R:Appel anticipÃ© KMP",
+          "libelle": "Appel de piÃ¨ces pour KMP avant la date de visite",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 88,
+          "nom": "R:Hors Contrat",
+          "libelle": "PiÃ¨ces hors pÃ©rimÃ¨tre Contrat",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 94,
+          "nom": "Livraison sous 6 mois",
+          "libelle": "Livraison sous 6 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 84,
+          "nom": "R:Event Incomplet",
+          "libelle": "Descriptif EvÃ©nement incomplet",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 82,
+          "nom": "R:Doublon ligne",
+          "libelle": "Doublon ligne",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 80,
+          "nom": "R:Pbm Potentiel(s)",
+          "libelle": "Absence/incohÃ©rence de potentiels",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 87,
+          "nom": "R:Perte Client",
+          "libelle": "Perte Client",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 89,
+          "nom": "R:Events FusionnÃ©s",
+          "libelle": "Plusieurs causes sur le mÃªme Event",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 86,
+          "nom": "R:Mauvaise utilisation",
+          "libelle": "Mauvaise utilisation client",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 91,
+          "nom": "R:Annulation Client",
+          "libelle": "Annulation Client",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 92,
+          "nom": "Livraison sous 1 mois",
+          "libelle": "Livraison sous 1 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 77,
+          "nom": " ",
+          "libelle": null,
+          "isReponseOK": true,
+          "isDisplayable": false,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 93,
+          "nom": "Livraison sous 3 mois",
+          "libelle": "Livraison sous 3 mois",
+          "isReponseOK": true,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        },
+        {
+          "id": 96,
+          "nom": "R:Livraison niveau supÃ©rieur",
+          "libelle": "Ligne couverte par le niveau supÃ©rieur livrÃ©",
+          "isReponseOK": false,
+          "isDisplayable": true,
+          "isInstantDelivery": false
+        }
+      ],
+      "erreurLFTs": [
+        {
+          "id": 127323,
+          "code": "code4",
+          "libelle": "libelle4"
+        }
+      ],
+      "origines": [
+        {
+          "id": 136,
+          "nom": "ContractualisÃ© Fourn.",
+          "libelle": "Livraison ContractualisÃ© par le Fournisseur",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 139,
+          "nom": "Appro en cours",
+          "libelle": "Approvisionnement en cours",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 137,
+          "nom": "Stock Ã©tat (client)",
+          "libelle": "Stock Ã©tat (client)",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 138,
+          "nom": "Stock Contrat",
+          "libelle": "Article prÃ©levÃ© dans le stock Contrat",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 135,
+          "nom": "Stock neuf",
+          "libelle": "PrÃ©lÃ¨vement sur Stock",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 140,
+          "nom": "Appro Ã  lancer",
+          "libelle": "Approvisionement Ã  lancer",
+          "isDisplayable": true,
+          "isMandatory": false
+        },
+        {
+          "id": 133,
+          "nom": " ",
+          "libelle": null,
+          "isDisplayable": false,
+          "isMandatory": false
+        },
+        {
+          "id": 134,
+          "nom": "DÃ©pannage autre contrat",
+          "libelle": "DÃ©pannage autre contrat",
+          "isDisplayable": true,
+          "isMandatory": false
+        }
+      ]
+    },
+    "causeReponseFt": {
+      "id": 46,
+      "nom": " ",
+      "libelle": null,
+      "isReponseOK": true,
+      "isDisplayable": false
+    },
+    "numeroFtInterne": "2016ABC000008",
+    "sequenceInterne": 0,
+    "dateCreation": 1477432800000,
+    "dateAr1": null,
+    "parc": "PA",
+    "site": "BOURGES",
+    "tranche": "VCI TC1.1",
+    "pilotePLCS": false,
+    "emailEmetteur": "nexter@nexter.net",
+    "commentaireExterneReponse": null,
+    "opex": false,
+    "demandeComplement": null,
+    "isIndispo": true,
+    "isCasseSequoia": false,
+    "vehicule": {
+      "id": 171932,
+      "nom": "VCI RANG 1005",
+      "immatriculation": "60840013",
+      "regiment": {
+        "id": 171931,
+        "nom": "PA"
+      }
+    },
+    "LFTs": [],
+    "neutralisations": []
+  },
+  {
+    "id": 171937,
+    "contract": 11,
+    "causeReponseFt": {
+      "id": 56,
+      "nom": " ",
+      "libelle": null,
+      "isReponseOK": true,
+      "isDisplayable": false
+    },
+    "numeroFtInterne": "2016-EPE0112",
+    "sequenceInterne": 1,
+    "dateCreation": 1477432800000,
+    "dateAr1": 1477432800000,
+    "parc": "PE Champagne",
+    "site": "Mourmelon (51)",
+    "tranche": "S2I",
+    "pilotePLCS": false,
+    "emailEmetteur": "nexter@nexter.com",
+    "commentaireExterneReponse": null,
+    "opex": false,
+    "demandeComplement": null,
+    "isIndispo": true,
+    "isCasseSequoia": false,
+    "vehicule": {
+      "id": 171936,
+      "nom": "XL 1282",
+      "immatriculation": "60340064",
+      "regiment": {
+        "id": 171935,
+        "nom": "CENTIAL"
+      }
+    },
+    "LFTs": [
+      {
+        "id": 171939,
+        "ft": 171937,
+        "indexOasis": 1,
+        "userLock": null,
+        "numeroLFTInterne": "2016-EPE0112_1",
+        "cfDde": "FASL3",
+        "rfDde": "82410822000",
+        "nnoDde": {
+          "id": 77228,
+          "nno": "5305145618456",
+          "noi": "145618456"
+        },
+        "idg": {
+          "id": 77226,
+          "nom": "82410822000",
+          "typeProduit": "AD",
+          "invalidite": "EMPTY",
+          "idgDerives": [
+            {
+              "id": 152330,
+              "contract": 11,
+              "idgPrefixe": "U0007STXL",
+              "idgSuffixe": "82410822000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": [
+                {
+                  "id": {
+                    "magasinId": 167979,
+                    "contractId": 11,
+                    "idgDeriveId": 152330,
+                    "typeEmplacement": "AUTRES"
+                  },
+                  "contract": 11,
+                  "magasin": {
+                    "id": 167979,
+                    "nom": "I11372"
+                  },
+                  "typeEmplacement": "AUTRES",
+                  "valeurStockBaan": 15
+                }
+              ]
+            },
+            {
+              "id": 77227,
+              "contract": 11,
+              "idgPrefixe": null,
+              "idgSuffixe": "82410822000",
+              "ligneOrdrePrevisionnelles": [],
+              "magasinStocks": []
+            }
+          ]
+        },
+        "causeReponseLFT": null,
+        "erreurLFT": null,
+        "designationDde": "VIS DE FIXATION DE LA COURONNE",
+        "quantiteDde": 22,
+        "quantitePreconisee": 11,
+        "classe": null,
+        "reparable": null,
+        "dateAr2": null,
+        "isCasseNTA": false,
+        "isCompatibiliteTranche": true,
+        "isFlagIndispo": false,
+        "isFlagExpedie": null,
+        "reponseLFTAssociee": {
+          "id": 171940,
+          "nno": null,
+          "iDGDerive": null,
+          "article": null,
+          "magasin": null,
+          "origine": null,
+          "quantite": null,
+          "ov": null,
+          "commentaireInterne": null,
+          "commentaireExterne": null,
+          "ajoutLigne": false,
+          "isTraitee": false,
+          "isExpediee": false,
+          "atcEnvoye": null,
+          "lov": null,
+          "numBE": null,
+          "numCaisse": null,
+          "numLigneBE": null,
+          "numColisage": null,
+          "numTransporteur": null,
+          "dateBE": null,
+          "dateLivraison": null,
+          "commentaireExpedition": null,
+          "dateExpedition": null,
+          "isDTD": false,
+          "dateEnvoi": null
+        },
+        "LFTParente": null,
+        "adresseLivraison": null,
+        "statutSuiviExpeLFT": null
+      }
+    ],
+    "neutralisations": []
+  }
+]
