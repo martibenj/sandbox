@@ -1,5 +1,6 @@
 package tests;
 
+import fr.martiben.cert.Truc;
 import fr.martiben.cert.othPack.Enfant;
 import fr.martiben.cert.othPack.Parent;
 import old.def.FormEntity;
@@ -71,7 +72,27 @@ public class Testouille
   }
 
   @Test
-  public void d() throws Exception
+  public void d() throws IOException
+  {
+  }
+
+  @Test
+  public void e() throws IOException
+  {
+    List<Truc> liste = new ArrayList<>();
+    liste.add(new Truc(1));
+    liste.add(new Truc(2));
+    liste.add(null);
+    liste.add(new Truc(3));
+
+    for (Truc s : liste)
+    {
+      System.out.println(s);
+    }
+  }
+
+  @Test
+  public void printLong() throws Exception
   {
     List<Long> pFtsIds = new ArrayList<>();
     pFtsIds.add(5L);
