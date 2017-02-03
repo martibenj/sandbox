@@ -74,6 +74,9 @@ public class Testouille
   @Test
   public void d() throws IOException
   {
+    String un = "1";
+    System.out.println(1 + 2 + un);
+    System.out.println(un + 1 + 2);
   }
 
   @Test
