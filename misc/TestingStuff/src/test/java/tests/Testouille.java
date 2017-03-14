@@ -22,6 +22,7 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -43,36 +44,68 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Testouille
 {
-  float f;
 
   @Test
-  public void stub() throws IOException
+  public void stub() throws Exception
   {
   }
 
   @Test
-  public void a() throws IOException
+  public void b() throws Exception
   {
+
   }
 
   @Test
-  public void b() throws IOException
+  public void c() throws Exception
   {
+
   }
 
   @Test
-  public void c() throws IOException
+  public void d() throws Exception
   {
+
   }
 
   @Test
-  public void d() throws IOException
+  public void e() throws Exception
+  {
+
+  }
+
+  @Test
+  public void fos() throws IOException
+  {
+    try (FileOutputStream fos = new FileOutputStream(Paths.get("").toFile()))
+    {
+      fos.write(0);
+    }
+    finally
+    {
+      System.out.println("hey finally");
+    }
+  }
+
+  @Test
+  public void optional() throws IOException
+  {
+    String nulleuh = null;
+
+    Optional<String> optString = Optional.ofNullable(nulleuh);
+    optString.ifPresent(present->System.out.println("je suis present " + present));
+    optString.orElseGet(()->"default");
+  }
+
+  @Test
+  public void testPrint() throws IOException
   {
     String un = "1";
     System.out.println(1 + 2 + un);
@@ -80,7 +113,7 @@ public class Testouille
   }
 
   @Test
-  public void e() throws IOException
+  public void listElNull() throws IOException
   {
     List<Truc> liste = new ArrayList<>();
     liste.add(new Truc(1));
@@ -138,6 +171,7 @@ public class Testouille
     return true;
   }
 
+  float f;
   @Test
   public void bytes() throws IOException
   {
